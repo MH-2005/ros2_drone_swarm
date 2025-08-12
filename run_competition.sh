@@ -1,128 +1,110 @@
 #!/bin/bash
-# Script for running complete swarm competition
+#
+# Final, optimized script for the full drone swarm competition run.
+# This script handles environment setup, building, execution, and cleanup.
+#
 
+# Exit immediately if a command exits with a non-zero status.
 set -e
 
-echo "==========================================="
-echo "ROS2 Swarm Competition - Complete Run"
-echo "==========================================="
+# --- Helper Functions ---
 
-# Detect shell and ROS setup
-if [ -n "$ZSH_VERSION" ]; then
-    SETUP_FILE="setup.zsh"
-else
-    SETUP_FILE="setup.bash"
-fi
-
-# Check ROS2 environment
-if [ -z "$ROS_DISTRO" ]; then
-    echo "Error: ROS2 not sourced. Attempting to source..."
-    source /opt/ros/*/setup.${SETUP_FILE}
-fi
-
-echo "Detected ROS2 $ROS_DISTRO environment ✓"
-
-# Clean up previous processes
-echo "Cleaning up previous processes..."
-killall -9 gz gzserver gzclient ruby &>/dev/null || true
-pkill -f "ros2" &>/dev/null || true
-pkill -f "gazebo" &>/dev/null || true
-sleep 3
-
-# Build workspace
-echo "Building ROS2 workspace..."
-if ! colcon build --symlink-install; then
-    echo "Error: Workspace build failed"
-    exit 1
-fi
-
-# Source workspace
-echo "Setting up workspace environment..."
-source install/setup.${SETUP_FILE}
-
-# Create required directories
-echo "Creating output directories..."
-mkdir -p videos logs
-
-# Set Gazebo model path
-export GZ_SIM_RESOURCE_PATH=$(pwd)/src/swarm_controller/worlds:$(pwd)/src/swarm_controller/models:${GZ_SIM_RESOURCE_PATH:-}
-
-# Check Gazebo
-if ! command -v gz &> /dev/null; then
-    echo "Error: Gazebo not installed"
-    echo "Please run: ./install_dependencies.sh"
-    exit 1
-fi
-
-# Display system info
-echo ""
-echo "=== System Information ==="
-echo "ROS Distribution: $ROS_DISTRO"
-echo "Workspace Path: $(pwd)"
-echo "Python Version: $(python3 --version)"
-echo "Gazebo Version: $(gz sim --version 2>/dev/null || echo 'Unknown')"
-echo ""
-
-# Test ROS2 connection
-echo "Testing ROS2..."
-timeout 3 ros2 topic list &>/dev/null || {
-    echo "Error: ROS2 daemon issue, restarting..."
-    ros2 daemon stop &>/dev/null || true
-    sleep 2
-    ros2 daemon start &>/dev/null || true
-    sleep 2
+# Detects the user's shell and sets the appropriate ROS setup file.
+detect_shell() {
+    if [ -n "$ZSH_VERSION" ]; then
+        SETUP_FILE="setup.zsh"
+    elif [ -n "$BASH_VERSION" ]; then
+        SETUP_FILE="setup.bash"
+    else
+        # Fallback for other or unknown shells
+        case "$(basename "$SHELL")" in
+            zsh)  SETUP_FILE="setup.zsh" ;;
+            bash) SETUP_FILE="setup.bash" ;;
+            *)
+                echo "⚠️  WARNING: Unknown shell. Defaulting to setup.bash."
+                SETUP_FILE="setup.bash"
+                ;;
+        esac
+    fi
+    echo "✅  Shell detected. Using '${SETUP_FILE}' for setup."
 }
 
-# Launch simulation
-echo "🚀 Launching competition simulation..."
-echo ""
-echo "Important notes:"
-echo "• Videos will be saved in ./videos/"
-echo "• Logs will be saved in ./logs/"
-echo "• Use Ctrl+C to stop"
-echo "• If errors occur, stop with Ctrl+C and try again"
-echo ""
+# Verifies that all prerequisites are met before running.
+check_prerequisites() {
+    # Check if the ROS environment has been sourced.
+    if [ -z "$ROS_DISTRO" ]; then
+        echo "❌  ERROR: ROS environment not sourced."
+        echo "Please source your ROS 2 installation first. Example:"
+        echo "source /opt/ros/jazzy/setup.zsh"
+        exit 1
+    fi
+    echo "✅  ROS $ROS_DISTRO environment is active."
 
-# Launch with appropriate parameters
-echo "Starting launch file..."
-timeout 300 ros2 launch swarm_controller run_competition.launch.py \
-    record_video:=true \
-    use_sim_time:=true \
-    headless:=false 2>&1 | tee logs/competition_run_$(date +%Y%m%d_%H%M%S).log &
+    # Check if Gazebo is installed and available in the path.
+    if ! command -v gz &> /dev/null; then
+        echo "❌  ERROR: Gazebo (gz sim) not found."
+        echo "Please ensure Gazebo is installed correctly."
+        exit 1
+    fi
+    echo "✅  Gazebo installation found."
+}
 
-LAUNCH_PID=$!
-
-# Cleanup function
-cleanup() {
-    echo ""
-    echo "🛑 Stopping simulation..."
-    kill $LAUNCH_PID 2>/dev/null || true
-    sleep 5
-    killall -9 gz gzserver gzclient ruby &>/dev/null || true
+# Cleans up any lingering processes from previous runs.
+cleanup_processes() {
+    echo "🧹  Cleaning up previous processes..."
+    # The '|| true' prevents the script from exiting if no processes are found to kill.
+    killall -9 gz gzserver gzclient &>/dev/null || true
     pkill -f "ros2" &>/dev/null || true
-    echo "Cleanup complete ✓"
+    sleep 2 # Brief pause to allow processes to terminate.
 }
 
-trap cleanup EXIT INT TERM
+# Builds the colcon workspace.
+build_workspace() {
+    echo "🛠️  Building the workspace with colcon..."
+    colcon build --symlink-install
+    echo "✅  Workspace built successfully."
+}
 
-echo "Simulation running..."
-echo "Press Ctrl+C to stop"
-echo ""
+# Sources the local workspace to make packages available.
+source_workspace() {
+    echo "🔗  Sourcing the local workspace..."
+    source install/${SETUP_FILE}
+}
 
-# Wait for completion with timeout
-wait $LAUNCH_PID 2>/dev/null || true
+# --- Main Execution Logic ---
+main() {
+    echo "==========================================="
+    echo "   ROS 2 Swarm Competition - Shahin Team"
+    echo "==========================================="
+    
+    # Run setup steps in order.
+    detect_shell
+    check_prerequisites
+    cleanup_processes
+    # build_workspace
+    source_workspace
 
-echo ""
-echo "🎯 Competition run completed!"
-echo ""
-echo "Output files:"
-if [ -d "videos" ]; then
-    echo "  📹 Videos: $(ls videos/ 2>/dev/null | wc -l) files in ./videos/"
-fi
-if [ -d "logs" ]; then
-    echo "  📄 Logs: $(ls logs/ 2>/dev/null | wc -l) files in ./logs/"
-fi
+    echo "🚀  Launching simulation..."
+    
+    # Launch the simulation in the background.
+    # The output is piped to 'tee' to display on the terminal AND save to a log file.
+    ros2 launch swarm_controller run_competition.launch.py \
+        record_video:=true \
+        use_sim_time:=true \
+        headless:=false &
 
-echo ""
-echo "To run again:"
-echo "  ./run_competition.sh"
+    # Store the Process ID (PID) of the launch command.
+    LAUNCH_PID=$!
+
+    # Set a trap to run the cleanup function on EXIT, INT, or TERM signals.
+    # This ensures cleanup happens even if the script is interrupted (e.g., with Ctrl+C).
+    trap 'echo "🛑  Stopping simulation..."; kill $LAUNCH_PID &>/dev/null; cleanup_processes' EXIT
+
+    echo "✅  Simulation is running (PID: $LAUNCH_PID). Press Ctrl+C to stop."
+
+    # Wait for the launch process to complete.
+    wait $LAUNCH_PID
+}
+
+# --- Script Entry Point ---
+main "$@"

@@ -12,25 +12,18 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        
-        # Install launch files
+        # Include all launch files
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
-        
-        # Install world files  
+        # Include all world files
         (os.path.join('share', package_name, 'worlds'), glob('worlds/*.world')),
-        
-        # Install config files
-        (os.path.join('share', package_name, 'config'), glob('config/*')),
-        
-        # Install model files with proper structure
-        (os.path.join('share', package_name, 'models/x500'), glob('models/x500/*.sdf')),
-        (os.path.join('share', package_name, 'models/x500'), glob('models/x500/*.config') or []),
+        # Include all config files
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='Competition Team',
-    maintainer_email='competition@example.com',
-    description='Swarm drone controller for competition',
+    maintainer='Shahin Team',
+    maintainer_email='shahin.team@email.com',
+    description='Main controller package for the ROS 2 drone swarm.',
     license='MIT',
     tests_require=['pytest'],
     entry_points={
@@ -38,8 +31,6 @@ setup(
             'swarm_drone = swarm_controller.swarm_drone:main',
             'formation_controller = swarm_controller.formation_controller:main',
             'mission_executor = swarm_controller.mission_executor:main',
-            'swarm_leader = swarm_controller.swarm_drone:main',
-            'swarm_follower = swarm_controller.swarm_drone:main',
         ],
     },
 )
