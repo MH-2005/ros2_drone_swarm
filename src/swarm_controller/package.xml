@@ -15,7 +15,7 @@
   <depend>tf2</depend>
   <depend>tf2_ros</depend>
   <depend>swarm_msgs</depend>
-  <depend>gazebo_ros_pkgs</depend>
+  <depend>ros_gz</depend>
   <depend>ros_gz_bridge</depend>
   <depend>ros_gz_sim</depend>
 
