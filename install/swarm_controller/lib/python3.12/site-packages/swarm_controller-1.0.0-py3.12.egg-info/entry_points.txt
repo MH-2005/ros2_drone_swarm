@@ -1,4 +1,0 @@
-[console_scripts]
-formation_controller = swarm_controller.formation_controller:main
-mission_executor = swarm_controller.mission_executor:main
-swarm_drone = swarm_controller.swarm_drone:main
