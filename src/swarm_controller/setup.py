@@ -13,22 +13,17 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         
-        # --- Corrected file installation ---
-        # This structure explicitly tells the build system how to copy
-        # the contents of each directory.
-        
         # Install launch files
         (os.path.join('share', package_name, 'launch'), glob('launch/*launch.py')),
         
-        # Install world files
+        # Install world files  
         (os.path.join('share', package_name, 'worlds'), glob('worlds/*.world')),
         
         # Install config files
         (os.path.join('share', package_name, 'config'), glob('config/*')),
         
-        # Install model files, preserving the directory structure
-        # This is the most important part
-        (os.path.join('share', package_name, 'models/x500'), glob('models/x500/*.sdf')), # Ensure it looks for .sdf
+        # Install model files
+        (os.path.join('share', package_name, 'models/x500'), glob('models/x500/*')),
         (os.path.join('share', package_name, 'models/x500/meshes'), glob('models/x500/meshes/*')),
         (os.path.join('share', package_name, 'models/x500/textures'), glob('models/x500/textures/*')),
     ],
@@ -41,6 +36,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            # تک نود برای همه پهپادها - طبق شیوه‌نامه
             'swarm_drone = swarm_controller.swarm_drone:main',
             'formation_controller = swarm_controller.formation_controller:main',
             'mission_executor = swarm_controller.mission_executor:main',
