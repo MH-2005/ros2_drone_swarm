@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs/rosidl_generator_py/swarm_msgs/swarm_msgs_s__rosidl_typesupport_c.so" "TARGETS" "swarm_msgs_s__rosidl_typesupport_c" "DESTINATION" "lib/python3.12/site-packages/swarm_msgs")

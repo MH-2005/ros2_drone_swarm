@@ -1,155 +1,198 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, GroupAction
+from launch.actions import (
+    DeclareLaunchArgument, IncludeLaunchDescription, 
+    GroupAction, ExecuteProcess, TimerAction
+)
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node, PushRosNamespace
+from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     """
-    Generates the launch description for the full drone swarm competition.
-    
-    This launch file initializes the Gazebo simulation, spawns a configurable
-    number of drones, sets up the necessary ROS-Gazebo bridges, and launches
-    the required controller nodes.
+    Generates the complete launch description for drone swarm competition.
     """
     
     # --- 1. GET PATHS AND DECLARE ARGUMENTS ---
-    
-    # Standard practice to find package paths
-    pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
     pkg_swarm_controller = get_package_share_directory('swarm_controller')
-
-    # Define paths to essential files
+    
+    # Define paths
     world_path = os.path.join(pkg_swarm_controller, 'worlds', 'swarm_arena.world')
     params_file = os.path.join(pkg_swarm_controller, 'config', 'swarm_params.yaml')
-    sdf_file = os.path.join(pkg_swarm_controller, 'models', 'x500', 'model.sdf')
-
-    # Declare the launch arguments that can be passed from the command line
-    declare_use_sim_time_arg = DeclareLaunchArgument(
+    
+    # Model path for SDF spawning
+    model_path = os.path.join(pkg_swarm_controller, 'models')
+    x500_sdf = os.path.join(model_path, 'x500', 'model.sdf')
+    
+    # Launch arguments
+    declare_use_sim_time = DeclareLaunchArgument(
         'use_sim_time',
         default_value='true',
-        description='Use simulation (Gazebo) clock if true'
+        description='Use simulation time'
+    )
+    
+    declare_headless = DeclareLaunchArgument(
+        'headless',
+        default_value='false',
+        description='Run headless simulation'
+    )
+    
+    declare_record_video = DeclareLaunchArgument(
+        'record_video',
+        default_value='true',
+        description='Enable video recording'
     )
     
     # --- 2. LAUNCH GAZEBO SIMULATION ---
-
-    # The standard and most robust way to launch Gazebo with ROS 2 integration
-    # is by including the launch file from the `ros_gz_sim` package.
-    gazebo = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')
-        ),
-        # Pass the world file and other Gazebo arguments here
-        launch_arguments={'gz_args': f'-r -v4 {world_path}'}.items(),
+    gazebo_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('ros_gz_sim'),
+                'launch',
+                'gz_sim.launch.py'
+            ])
+        ]),
+        launch_arguments={
+            'gz_args': f'-r -v4 {world_path}',
+            'on_exit_shutdown': 'true'
+        }.items()
     )
-
-    # --- 3. PREPARE LAUNCH ACTIONS ---
-
-    # Create a list to hold all the actions we want to launch
-    launch_actions = [
-        declare_use_sim_time_arg,
-        gazebo,
-    ]
-
-    # --- 4. SPAWN DRONES AND LAUNCH NODES ---
-
-    # Define the number of drones to spawn.
-    # NOTE: This is set as a Python variable. Using a LaunchConfiguration here
-    # to control a 'for' loop is not possible, as the loop runs before the
-    # launch configuration is evaluated. For a variable number of drones,
-    # this is the simplest and most reliable approach.
-    num_drones = 4
-
-    for i in range(num_drones):
-        drone_name = f'x500_{i}'
-        namespace = f'drone_{i}'
-
-        # Create a GroupAction for each drone...
-        drone_group = GroupAction([
-            PushRosNamespace(namespace),
-
-            # Spawn the drone entity in Gazebo by its globally known name.
-            Node(
-                package='ros_gz_sim',
-                executable='create',
-                arguments=[
-                    '-world', 'default',
-                    '-name', 'x500', 
-                    '-string', f'<model name="{drone_name}"/>', # <-- تغییر نام مدل در شبیه‌سازی
-                    '-x', str(i * 2.0 - 3.0),
-                    '-y', '0.0',
-                    '-z', '0.5'
-                ],
-                output='screen'
-            ),
-
-            # Create a ROS-Gazebo bridge for this drone's topics.
-            # This translates messages between the two systems.
-            Node(
-                package='ros_gz_bridge',
-                executable='parameter_bridge',
-                arguments=[
-                    # Correct Syntax: /ros/topic@ROS_MSG_TYPE[gz.msgs.GZ_MSG_TYPE
-                    f'/model/{drone_name}/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry',
-                    'cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist',
-                ],
-                # Remap the Gazebo-style topics to cleaner, namespaced ROS topics.
-                remappings=[
-                    (f'/model/{drone_name}/odometry', 'odom'),
-                ],
-                output='screen'
-            ),
-
-            # Launch the individual controller node for this drone.
-            Node(
-                package='swarm_controller',
-                executable='swarm_drone', # The entry point from your setup.py
-                name='controller',
-                parameters=[
-                    {'drone_id': i},
-                    {'role': 'leader' if i == 0 else 'follower'},
-                    # Pass the use_sim_time argument to the node
-                    {'use_sim_time': LaunchConfiguration('use_sim_time')}
-                ],
-                output='screen'
-            )
-        ])
-        
-        launch_actions.append(drone_group)
-
-    # --- 5. LAUNCH CENTRAL CONTROLLERS AND GLOBAL NODES ---
-
-    # Bridge for the simulation clock (needed by all ROS nodes)
+    
+    # --- 3. ROS-GAZEBO BRIDGE FOR CLOCK ---
     clock_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
         arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'],
         output='screen'
     )
-    launch_actions.append(clock_bridge)
-
-    # Central formation controller node
+    
+    # --- 4. SPAWN DRONES AND CREATE CONTROLLERS ---
+    launch_actions = [
+        declare_use_sim_time,
+        declare_headless,
+        declare_record_video,
+        gazebo_launch,
+        clock_bridge
+    ]
+    
+    num_drones = 4
+    spawn_delay = 2.0  # Delay between spawning drones
+    
+    for i in range(num_drones):
+        drone_name = f'x500_{i}'
+        namespace = f'drone_{i}'
+        
+        # Calculate spawn position
+        spawn_x = i * 3.0 - 4.5  # Spread drones horizontally
+        spawn_y = 0.0
+        spawn_z = 0.5
+        
+        # Spawn drone in Gazebo
+        spawn_drone = ExecuteProcess(
+            cmd=[
+                'gz', 'service', '-s', '/world/swarm_arena/create',
+                '--reqtype', 'gz.msgs.EntityFactory',
+                '--reptype', 'gz.msgs.Boolean',
+                '--timeout', '5000',
+                '--req',
+                f'sdf_filename: "{x500_sdf}", '
+                f'name: "{drone_name}", '
+                f'pose: {{position: {{x: {spawn_x}, y: {spawn_y}, z: {spawn_z}}} }}'
+            ],
+            output='screen',
+            shell=False
+        )
+        
+        # Add delay for spawning
+        delayed_spawn = TimerAction(
+            period=spawn_delay * i,
+            actions=[spawn_drone]
+        )
+        
+        # Create drone group with namespace
+        drone_group = GroupAction([
+            PushRosNamespace(namespace),
+            
+            # ROS-Gazebo bridge for this drone
+            Node(
+                package='ros_gz_bridge',
+                executable='parameter_bridge',
+                arguments=[
+                    f'/model/{drone_name}/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry',
+                    f'/model/{drone_name}/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist',
+                    f'/model/{drone_name}/enable@std_msgs/msg/Bool]gz.msgs.Boolean',
+                ],
+                remappings=[
+                    (f'/model/{drone_name}/odometry', 'odom'),
+                    (f'/model/{drone_name}/cmd_vel', 'cmd_vel'),
+                    (f'/model/{drone_name}/enable', 'enable'),
+                ],
+                output='screen'
+            ),
+            
+            # Drone controller node
+            Node(
+                package='swarm_controller',
+                executable='swarm_drone',
+                name='controller',
+                parameters=[
+                    {
+                        'drone_id': i,
+                        'role': 'leader' if i == 0 else 'follower',
+                        'use_sim_time': LaunchConfiguration('use_sim_time'),
+                        'max_velocity': 2.5,
+                        'safety_distance': 3.5,
+                        'home_position': [spawn_x, spawn_y, 5.0]
+                    }
+                ],
+                output='screen'
+            )
+        ])
+        
+        launch_actions.extend([delayed_spawn, drone_group])
+    
+    # --- 5. GLOBAL CONTROLLERS ---
+    
+    # Formation controller
     formation_controller = Node(
         package='swarm_controller',
         executable='formation_controller',
         name='formation_controller',
-        parameters=[params_file, {'use_sim_time': LaunchConfiguration('use_sim_time')}],
+        parameters=[
+            params_file,
+            {'use_sim_time': LaunchConfiguration('use_sim_time')}
+        ],
         output='screen'
     )
-    launch_actions.append(formation_controller)
-
-    # Central mission executor node
+    
+    # Mission executor
     mission_executor = Node(
         package='swarm_controller',
         executable='mission_executor',
         name='mission_executor',
-        parameters=[params_file, {'use_sim_time': LaunchConfiguration('use_sim_time')}],
+        parameters=[
+            params_file,
+            {
+                'use_sim_time': LaunchConfiguration('use_sim_time'),
+                'video_recording': LaunchConfiguration('record_video')
+            }
+        ],
         output='screen'
     )
-    launch_actions.append(mission_executor)
-
-    # --- 6. RETURN THE COMPLETE LAUNCH DESCRIPTION ---
+    
+    # Add delay for controllers to start after drones
+    delayed_formation = TimerAction(
+        period=10.0,  # Wait for all drones to spawn
+        actions=[formation_controller]
+    )
+    
+    delayed_mission = TimerAction(
+        period=12.0,  # Start mission executor after formation controller
+        actions=[mission_executor]
+    )
+    
+    launch_actions.extend([delayed_formation, delayed_mission])
     
     return LaunchDescription(launch_actions)

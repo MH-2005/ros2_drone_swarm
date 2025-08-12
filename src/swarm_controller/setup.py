@@ -14,10 +14,15 @@ setup(
         ('share/' + package_name, ['package.xml']),
         # Include all launch files
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
-        # Include all world files
+        # Include all world files  
         (os.path.join('share', package_name, 'worlds'), glob('worlds/*.world')),
         # Include all config files
         (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
+        (os.path.join('share', package_name, 'config'), glob('config/*.rviz')),
+        # Include models directory
+        (os.path.join('share', package_name, 'models', 'x500'), glob('models/x500/*')),
+        # Include any additional resource files
+        (os.path.join('share', package_name), glob('*.csv')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

@@ -1,61 +1,109 @@
 <?xml version="1.0" ?>
 <sdf version="1.8">
   <world name="swarm_arena">
+    
+    <!-- Physics Configuration -->
     <physics name="1ms" type="ode">
-      <max_step_size>0.001</max_step_size>
+      <max_step_size>0.004</max_step_size>
       <real_time_factor>1.0</real_time_factor>
-      <real_time_update_rate>1000</real_time_update_rate>
+      <real_time_update_rate>250</real_time_update_rate>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>150</iters>
+          <sor>1.4</sor>
+        </solver>
+        <constraints>
+          <cfm>1e-5</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>2000.0</contact_max_correcting_vel>
+          <contact_surface_layer>0.01</contact_surface_layer>
+        </constraints>
+      </ode>
     </physics>
     
-    <!-- System plugins for Gazebo Harmonic -->
-    <plugin filename="gz-sim-physics-system"
-            name="gz::sim::systems::Physics">
+    <!-- Essential system plugins for Gazebo Harmonic -->
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics">
     </plugin>
     
-    <plugin filename="gz-sim-user-commands-system"
-            name="gz::sim::systems::UserCommands">
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands">
     </plugin>
     
-    <plugin filename="gz-sim-scene-broadcaster-system"
-            name="gz::sim::systems::SceneBroadcaster">
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster">
     </plugin>
     
-    <plugin filename="gz-sim-contact-system"
-            name="gz::sim::systems::Contact">
+    <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact">
     </plugin>
     
-    <plugin filename="gz-sim-air-pressure-system"
-            name="gz::sim::systems::AirPressure">
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
     </plugin>
     
-    <plugin filename="gz-sim-air-speed-system"
-            name="gz::sim::systems::AirSpeed">
+    <plugin filename="gz-sim-magnetometer-system" name="gz::sim::systems::Magnetometer">
     </plugin>
     
-    <!-- Environment settings -->
+    <plugin filename="gz-sim-air-pressure-system" name="gz::sim::systems::AirPressure">
+    </plugin>
+    
+    <plugin filename="gz-sim-navsat-system" name="gz::sim::systems::NavSat">
+    </plugin>
+    
+    <!-- Multicopter systems -->
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+    </plugin>
+    
+    <plugin filename="gz-sim-multicopter-control-system" name="gz::sim::systems::MulticopterVelocityControl">
+    </plugin>
+
+    <!-- Environment Configuration -->
     <scene>
-      <ambient>0.6 0.6 0.6</ambient>
-      <background>0.8 0.9 1.0</background>
+      <ambient>0.4 0.4 0.4</ambient>
+      <background>0.7 0.8 1.0</background>
       <shadows>true</shadows>
-      <grid>true</grid>
+      <grid>false</grid>
+      <sky>
+        <clouds>
+          <speed>12</speed>
+        </clouds>
+      </sky>
     </scene>
 
-    <!-- Lighting -->
+    <!-- Atmospheric conditions -->
+    <atmosphere type="adiabatic">
+      <temperature>288.15</temperature>
+      <pressure>101325</pressure>
+      <temperature_gradient>-0.0065</temperature_gradient>
+    </atmosphere>
+
+    <!-- Wind (light breeze) -->
+    <wind>
+      <linear_velocity>2 1 0</linear_velocity>
+    </wind>
+
+    <!-- Primary lighting -->
     <light type="directional" name="sun">
       <cast_shadows>true</cast_shadows>
-      <pose>0 0 15 0 0 0</pose>
-      <diffuse>1.0 1.0 0.9 1</diffuse>
+      <pose>0 0 20 0 0 0</pose>
+      <diffuse>1.2 1.1 0.9 1</diffuse>
       <specular>0.8 0.8 0.8 1</specular>
       <attenuation>
-        <range>2000</range>
-        <constant>0.8</constant>
+        <range>3000</range>
+        <constant>0.9</constant>
         <linear>0.01</linear>
-        <quadratic>0.0001</quadratic>
+        <quadratic>0.001</quadratic>
       </attenuation>
-      <direction>-0.3 0.2 -1.0</direction>
+      <direction>-0.5 0.1 -0.9</direction>
     </light>
 
-    <!-- Ground plane -->
+    <!-- Secondary ambient light -->
+    <light type="directional" name="ambient_light">
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.3 0.3 0.4 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>0.1 0.1 -1.0</direction>
+    </light>
+
+    <!-- Ground plane with better material -->
     <model name="ground_plane">
       <static>true</static>
       <link name="link">
@@ -69,10 +117,21 @@
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>50</mu2>
+                <mu>1</mu>
+                <mu2>1</mu2>
               </ode>
             </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e6</threshold>
+            </bounce>
+            <contact>
+              <ode>
+                <max_contacts>20</max_contacts>
+                <max_vel>0.01</max_vel>
+                <min_depth>0.0001</min_depth>
+              </ode>
+            </contact>
           </surface>
         </collision>
         <visual name="visual">
@@ -83,118 +142,223 @@
             </plane>
           </geometry>
           <material>
-            <ambient>0.3 0.5 0.3</ambient>
-            <diffuse>0.3 0.5 0.3</diffuse>
+            <ambient>0.2 0.4 0.2</ambient>
+            <diffuse>0.3 0.6 0.3</diffuse>
+            <specular>0.01 0.01 0.01</specular>
+            <pbr>
+              <metal>
+                <albedo_map>materials/grass_texture.png</albedo_map>
+                <metalness>0.0</metalness>
+                <roughness>0.8</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Origin marker -->
+    <model name="origin_marker">
+      <pose>0 0 0.05 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>0.1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 1 0</ambient>
+            <diffuse>1 1 0</diffuse>
+            <emissive>0.2 0.2 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Competition obstacles -->
+    
+    <!-- Tower obstacle 1 -->
+    <model name="tower_1">
+      <pose>15 8 4 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2 2 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2 2 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.2 0.2</ambient>
+            <diffuse>0.9 0.3 0.3</diffuse>
             <specular>0.1 0.1 0.1</specular>
           </material>
         </visual>
       </link>
     </model>
 
-    <!-- Tower obstacle -->
-    <model name="tower_obstacle_1">
-      <pose>12 6 3.5 0 0 0</pose>
-      <static>true</static>
-      <link name="link">
-        <collision name="collision">
-          <geometry>
-            <box>
-              <size>3 3 7</size>
-            </box>
-          </geometry>
-        </collision>
-        <visual name="visual">
-          <geometry>
-            <box>
-              <size>3 3 7</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>0.7 0.2 0.2</ambient>
-            <diffuse>0.7 0.2 0.2</diffuse>
-            <specular>0.3 0.3 0.3</specular>
-          </material>
-        </visual>
-      </link>
-    </model>
-
-    <!-- Cylindrical barrier -->
-    <model name="cylinder_obstacle_2">
-      <pose>-10 -5 4 0 0 0</pose>
+    <!-- Cylindrical obstacle -->
+    <model name="cylinder_1">
+      <pose>-12 -8 5 0 0 0</pose>
       <static>true</static>
       <link name="link">
         <collision name="collision">
           <geometry>
             <cylinder>
-              <radius>2.5</radius>
-              <length>8</length>
+              <radius>1.5</radius>
+              <length>10</length>
             </cylinder>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <cylinder>
-              <radius>2.5</radius>
-              <length>8</length>
+              <radius>1.5</radius>
+              <length>10</length>
             </cylinder>
           </geometry>
           <material>
-            <ambient>0.2 0.7 0.2</ambient>
-            <diffuse>0.2 0.7 0.2</diffuse>
-            <specular>0.3 0.3 0.3</specular>
+            <ambient>0.2 0.8 0.2</ambient>
+            <diffuse>0.3 0.9 0.3</diffuse>
+            <specular>0.1 0.1 0.1</specular>
           </material>
         </visual>
       </link>
     </model>
 
-    <!-- Sphere obstacle -->
-    <model name="sphere_obstacle_3">
-      <pose>8 -12 2.5 0 0 0</pose>
+    <!-- Spherical obstacle -->
+    <model name="sphere_1">
+      <pose>10 -15 3 0 0 0</pose>
       <static>true</static>
       <link name="link">
         <collision name="collision">
           <geometry>
             <sphere>
-              <radius>2.5</radius>
+              <radius>3</radius>
             </sphere>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <sphere>
-              <radius>2.5</radius>
+              <radius>3</radius>
             </sphere>
           </geometry>
           <material>
-            <ambient>0.2 0.2 0.7</ambient>
-            <diffuse>0.2 0.2 0.7</diffuse>
-            <specular>0.3 0.3 0.3</specular>
+            <ambient>0.2 0.2 0.8</ambient>
+            <diffuse>0.3 0.3 0.9</diffuse>
+            <specular>0.2 0.2 0.2</specular>
           </material>
         </visual>
       </link>
     </model>
 
-    <!-- Reference marker -->
-    <model name="marker_origin">
-      <pose>0 0 0.1 0 0 0</pose>
+    <!-- L-shaped wall obstacle -->
+    <model name="wall_l_shape">
+      <pose>-8 12 2 0 0 0</pose>
+      <static>true</static>
+      
+      <!-- Vertical part of L -->
+      <link name="vertical_wall">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.5 8 4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.5 8 4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6 0.4 0.2</ambient>
+            <diffuse>0.8 0.6 0.3</diffuse>
+            <specular>0.1 0.1 0.1</specular>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- Horizontal part of L -->
+      <link name="horizontal_wall">
+        <pose>3 -4 0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>6 0.5 4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>6 0.5 4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6 0.4 0.2</ambient>
+            <diffuse>0.8 0.6 0.3</diffuse>
+            <specular>0.1 0.1 0.1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Landing pad markers for reference -->
+    <model name="landing_pad_1">
+      <pose>20 20 0.02 0 0 0</pose>
       <static>true</static>
       <link name="link">
         <visual name="visual">
           <geometry>
             <cylinder>
-              <radius>0.5</radius>
-              <length>0.2</length>
+              <radius>2</radius>
+              <length>0.04</length>
             </cylinder>
           </geometry>
           <material>
-            <ambient>1 1 0</ambient>
-            <diffuse>1 1 0</diffuse>
+            <ambient>1 0 1</ambient>
+            <diffuse>1 0.2 1</diffuse>
+            <emissive>0.1 0 0.1</emissive>
           </material>
         </visual>
       </link>
     </model>
 
-    <!-- Atmospheric conditions for drones -->
+    <model name="landing_pad_2">
+      <pose>-20 -20 0.02 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>2</radius>
+              <length>0.04</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 1</ambient>
+            <diffuse>0.2 1 1</diffuse>
+            <emissive>0 0.1 0.1</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- GPS reference point -->
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
       <world_frame_orientation>ENU</world_frame_orientation>
@@ -203,6 +367,102 @@
       <elevation>488.0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
+
+    <!-- Magnetic field -->
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+
+    <!-- GUI configuration -->
+    <gui fullscreen="0">
+      <plugin filename="MinimalScene" name="3D View">
+        <gz-gui>
+          <title>3D View</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="string" key="state">docked</property>
+        </gz-gui>
+        <engine>ogre2</engine>
+        <scene>scene</scene>
+        <ambient_light>0.4 0.4 0.4</ambient_light>
+        <background_color>0.8 0.8 0.8</background_color>
+        <camera_pose>-20 -20 15 0 0.4 0.785</camera_pose>
+      </plugin>
+
+      <plugin filename="EntityContextMenuPlugin" name="Entity context menu">
+        <gz-gui>
+          <property key="state" type="string">floating</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+
+      <plugin filename="GzSceneManager" name="Scene Manager">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+
+      <plugin filename="InteractiveViewControl" name="Interactive view control">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+
+      <plugin filename="CameraTracking" name="Camera Tracking">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+      
+      <plugin filename="WorldControl" name="World control">
+        <gz-gui>
+          <title>World control</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="bool" key="resizable">false</property>
+          <property type="double" key="height">72</property>
+          <property type="double" key="z">1</property>
+          <property type="string" key="state">floating</property>
+          <anchors target="3D View">
+            <line own="left" target="left"/>
+            <line own="bottom" target="bottom"/>
+          </anchors>
+        </gz-gui>
+        <play_pause>true</play_pause>
+        <step>true</step>
+        <start_paused>true</start_paused>
+      </plugin>
+
+      <plugin filename="WorldStats" name="World stats">
+        <gz-gui>
+          <title>World stats</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="bool" key="resizable">false</property>
+          <property type="double" key="height">110</property>
+          <property type="double" key="width">290</property>
+          <property type="double" key="z">1</property>
+          <property type="string" key="state">floating</property>
+          <anchors target="3D View">
+            <line own="right" target="right"/>
+            <line own="bottom" target="bottom"/>
+          </anchors>
+        </gz-gui>
+        <sim_time>true</sim_time>
+        <real_time>true</real_time>
+        <real_time_factor>true</real_time_factor>
+        <iterations>true</iterations>
+      </plugin>
+    </gui>
 
   </world>
 </sdf>
