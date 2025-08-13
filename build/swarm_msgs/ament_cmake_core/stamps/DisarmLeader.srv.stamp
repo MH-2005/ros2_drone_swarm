@@ -1,0 +1,7 @@
+int32 leader_id
+bool return_to_home
+---
+bool success
+int32 old_leader_id
+int32 new_leader_id
+string message

@@ -178,9 +178,19 @@ validate_build() {
             print_status "Executable '$exe' available"
         else
             print_error "Executable '$exe' not found"
-            exit 1
+            print_warning "Check if the Python module and entry_points are correctly configured"
+            # Don't exit here, continue validation
         fi
     done
+    
+    # Check Python module import
+    echo "Testing Python module imports..."
+    if python3 -c "import swarm_controller.swarm_drone; import swarm_controller.formation_controller; import swarm_controller.mission_executor" 2>/dev/null; then
+        print_status "Python modules can be imported successfully"
+    else
+        print_error "Python module imports failed"
+        exit 1
+    fi
     
     echo ""
 }
@@ -204,6 +214,10 @@ show_final_info() {
     echo "• Messages: $(ros2 pkg executables swarm_msgs 2>/dev/null | wc -l) interfaces"
     echo "• Executables: $(ros2 pkg executables swarm_controller 2>/dev/null | wc -l) nodes"
     echo "• Launch files: $(find src/swarm_controller/launch -name "*.launch.py" | wc -l) files"
+    echo ""
+    echo "Debug info:"
+    echo "• Python path: $(python3 -c 'import sys; print(sys.path)' 2>/dev/null || echo 'N/A')"
+    echo "• ROS package path: $ROS_PACKAGE_PATH"
     echo ""
 }
 

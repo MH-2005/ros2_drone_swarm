@@ -1,0 +1,36 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "swarm_msgs/srv/DisarmLeader_Request",
+      "fields": [
+        {
+          "name": "leader_id",
+          "type": {
+            "type_id": 6,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        },
+        {
+          "name": "return_to_home",
+          "type": {
+            "type_id": 15,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "swarm_msgs/srv/DisarmLeader_Request",
+      "hash_string": "RIHS01_80fa40f10eb43e877b9c0961ac66613303d1c81427e8cd316a88d3ed1a8b0ec7"
+    }
+  ]
+}

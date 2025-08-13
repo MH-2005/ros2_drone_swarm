@@ -46,7 +46,13 @@ class SwarmDrone(Node):
         self.declare_parameter('max_velocity', 2.5)
         self.declare_parameter('safety_distance', 3.5)
         self.declare_parameter('home_position', [0.0, 0.0, 5.0])
-        self.declare_parameter('use_sim_time', True)
+        
+        # Check if use_sim_time is already declared (happens in launch files)
+        try:
+            self.declare_parameter('use_sim_time', True)
+        except Exception:
+            # Parameter already declared, just use it
+            pass
         
         # Get parameters
         self.drone_id = self.get_parameter('drone_id').value

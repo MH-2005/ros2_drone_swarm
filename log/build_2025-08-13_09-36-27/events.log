@@ -1,0 +1,543 @@
+[0.000000] (-) TimerEvent: {}
+[0.000181] (-) JobUnselected: {'identifier': 'swarm_controller'}
+[0.000210] (swarm_msgs) JobQueued: {'identifier': 'swarm_msgs', 'dependencies': OrderedDict()}
+[0.000228] (swarm_msgs) JobStarted: {'identifier': 'swarm_msgs'}
+[0.007031] (swarm_msgs) JobProgress: {'identifier': 'swarm_msgs', 'progress': 'cmake'}
+[0.007506] (swarm_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/mh/Documents/ros2_drone_swarm/src/swarm_msgs', '-DCMAKE_BUILD_TYPE=Release', '-DCMAKE_INSTALL_PREFIX=/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs'], 'cwd': '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs', 'env': OrderedDict({'APPCODE_VM_OPTIONS': '/ja-netfilter/vmoptions/appcode.vmoptions', 'GATEWAY_VM_OPTIONS': '/ja-netfilter/vmoptions/gateway.vmoptions', 'HTTPS_PROXY': 'http://127.0.0.1:12334/', 'GZ_SIM_RESOURCE_PATH': ':/home/mh/PX4-Autopilot/Tools/simulation/gz/models', 'no_proxy': 'localhost,127.0.0.0/8,::1', 'LANGUAGE': 'en_US:en', 'USER': 'mh', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'WEBSTORM_VM_OPTIONS': '/ja-netfilter/vmoptions/webstorm.vmoptions', 'WEBIDE_VM_OPTIONS': '/ja-netfilter/vmoptions/webide.vmoptions', 'all_proxy': 'socks://127.0.0.1:12334/', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/lib', 'LESS': '-R', 'HOME': '/home/mh', 'OLDPWD': '/home/mh/Documents/ros2_drone_swarm/src/swarm_controller', 'DESKTOP_SESSION': 'ubuntu', 'NO_PROXY': 'localhost,127.0.0.0/8,::1', 'LSCOLORS': 'Gxfxcxdxbxegedabagacad', 'ZSH': '/home/mh/.oh-my-zsh', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': 'less', 'LC_MONETARY': 'en_US.UTF-8', 'P9K_TTY': 'old', 'DATASPELL_VM_OPTIONS': '/ja-netfilter/vmoptions/dataspell.vmoptions', 'SYSTEMD_EXEC_PID': '3373', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DATAGRIP_VM_OPTIONS': '/ja-netfilter/vmoptions/datagrip.vmoptions', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IDEA_VM_OPTIONS': '/ja-netfilter/vmoptions/idea.vmoptions', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'https_proxy': 'http://127.0.0.1:12334/', 'COLCON_PREFIX_PATH': '/home/mh/Documents/ros2_drone_swarm', 'CLION_VM_OPTIONS': '/ja-netfilter/vmoptions/clion.vmoptions', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'mh', 'ALL_PROXY': 'socks://127.0.0.1:12334/', 'JETBRAINSCLIENT_VM_OPTIONS': '/ja-netfilter/vmoptions/jetbrainsclient.vmoptions', '_P9K_SSH_TTY': '/dev/pts/0', 'http_proxy': 'http://127.0.0.1:12334/', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'PHPSTORM_VM_OPTIONS': '/ja-netfilter/vmoptions/phpstorm.vmoptions', 'USERNAME': 'mh', 'TERM': 'xterm-256color', 'STUDIO_VM_OPTIONS': '/ja-netfilter/vmoptions/studio.vmoptions', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/mh/rosenv/bin:/home/mh/.local/bin:/home/mh/rosenv/bin:/home/mh/.local/bin:/home/mh/.local/bin:/home/mh/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/mh-Precision-5530:@/tmp/.ICE-unix/3220,unix/mh-Precision-5530:/tmp/.ICE-unix/3220', 'PAPERSIZE': 'letter', 'RIDER_VM_OPTIONS': '/ja-netfilter/vmoptions/rider.vmoptions', 'DEVECOSTUDIO_VM_OPTIONS': '/ja-netfilter/vmoptions/devecostudio.vmoptions', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'en_US.UTF-8', 'ftp_proxy': 'http://127.0.0.1:12334/', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/b8ca06d1_c560_4e67_9b23_17cd06b3999a', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'GOLAND_VM_OPTIONS': '/ja-netfilter/vmoptions/goland.vmoptions', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.145', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/usr/bin/zsh', 'LC_NAME': 'en_US.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'IGN_GAZEBO_RESOURCE_PATH': '/opt/ros/jazzy/share', 'LC_MEASUREMENT': 'en_US.UTF-8', 'PYCHARM_VM_OPTIONS': '/ja-netfilter/vmoptions/pycharm.vmoptions', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'P9K_SSH': '0', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'RUBYMINE_VM_OPTIONS': '/ja-netfilter/vmoptions/rubymine.vmoptions', 'PWD': '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs', 'JETBRAINS_CLIENT_VM_OPTIONS': '/ja-netfilter/vmoptions/jetbrains_client.vmoptions', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', '_P9K_TTY': '/dev/pts/0', 'FTP_PROXY': 'http://127.0.0.1:12334/', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/home/mh/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:12334/', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.066300] (swarm_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.099471] (-) TimerEvent: {}
+[0.125648] (swarm_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.142806] (swarm_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.207184] (-) TimerEvent: {}
+[0.259231] (swarm_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.271317] (swarm_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.271596] (swarm_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.272161] (swarm_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.282407] (swarm_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.303123] (-) TimerEvent: {}
+[0.386845] (swarm_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.397243] (swarm_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.397544] (swarm_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.397989] (swarm_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.401908] (swarm_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.403191] (-) TimerEvent: {}
+[0.503389] (-) TimerEvent: {}
+[0.534301] (swarm_msgs) StdoutLine: {'line': b'-- Found Python3: /home/mh/rosenv/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.603486] (-) TimerEvent: {}
+[0.654859] (swarm_msgs) StdoutLine: {'line': b'-- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)\n'}
+[0.703614] (-) TimerEvent: {}
+[0.710342] (swarm_msgs) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.729541] (swarm_msgs) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.751756] (swarm_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.776686] (swarm_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.803727] (-) TimerEvent: {}
+[0.817296] (swarm_msgs) StdoutLine: {'line': b'-- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)\n'}
+[0.836696] (swarm_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[0.858191] (swarm_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.5 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[0.903822] (-) TimerEvent: {}
+[1.004068] (-) TimerEvent: {}
+[1.104272] (-) TimerEvent: {}
+[1.204511] (-) TimerEvent: {}
+[1.304734] (-) TimerEvent: {}
+[1.405028] (-) TimerEvent: {}
+[1.505277] (-) TimerEvent: {}
+[1.508520] (swarm_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[1.605409] (-) TimerEvent: {}
+[1.705657] (-) TimerEvent: {}
+[1.805919] (-) TimerEvent: {}
+[1.906140] (-) TimerEvent: {}
+[2.006348] (-) TimerEvent: {}
+[2.106627] (-) TimerEvent: {}
+[2.206860] (-) TimerEvent: {}
+[2.250934] (swarm_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.307007] (-) TimerEvent: {}
+[2.407242] (-) TimerEvent: {}
+[2.507468] (-) TimerEvent: {}
+[2.541309] (swarm_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.545337] (swarm_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[2.607595] (-) TimerEvent: {}
+[2.655790] (swarm_msgs) StdoutLine: {'line': b'-- Found PythonExtra: /home/mh/rosenv/bin/python3  \n'}
+[2.707709] (-) TimerEvent: {}
+[2.807942] (-) TimerEvent: {}
+[2.908193] (-) TimerEvent: {}
+[3.008674] (-) TimerEvent: {}
+[3.089562] (swarm_msgs) StdoutLine: {'line': b'-- Found Python3: /home/mh/rosenv/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[3.108746] (-) TimerEvent: {}
+[3.165478] (swarm_msgs) StdoutLine: {'line': b'-- Configuring done (3.1s)\n'}
+[3.208821] (-) TimerEvent: {}
+[3.224232] (swarm_msgs) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[3.239137] (swarm_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/mh/Documents/ros2_drone_swarm/build/swarm_msgs\n'}
+[3.250558] (swarm_msgs) CommandEnded: {'returncode': 0}
+[3.251887] (swarm_msgs) JobProgress: {'identifier': 'swarm_msgs', 'progress': 'build'}
+[3.251917] (swarm_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs', '--', '-j12', '-l12'], 'cwd': '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs', 'env': OrderedDict({'APPCODE_VM_OPTIONS': '/ja-netfilter/vmoptions/appcode.vmoptions', 'GATEWAY_VM_OPTIONS': '/ja-netfilter/vmoptions/gateway.vmoptions', 'HTTPS_PROXY': 'http://127.0.0.1:12334/', 'GZ_SIM_RESOURCE_PATH': ':/home/mh/PX4-Autopilot/Tools/simulation/gz/models', 'no_proxy': 'localhost,127.0.0.0/8,::1', 'LANGUAGE': 'en_US:en', 'USER': 'mh', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'WEBSTORM_VM_OPTIONS': '/ja-netfilter/vmoptions/webstorm.vmoptions', 'WEBIDE_VM_OPTIONS': '/ja-netfilter/vmoptions/webide.vmoptions', 'all_proxy': 'socks://127.0.0.1:12334/', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/lib', 'LESS': '-R', 'HOME': '/home/mh', 'OLDPWD': '/home/mh/Documents/ros2_drone_swarm/src/swarm_controller', 'DESKTOP_SESSION': 'ubuntu', 'NO_PROXY': 'localhost,127.0.0.0/8,::1', 'LSCOLORS': 'Gxfxcxdxbxegedabagacad', 'ZSH': '/home/mh/.oh-my-zsh', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': 'less', 'LC_MONETARY': 'en_US.UTF-8', 'P9K_TTY': 'old', 'DATASPELL_VM_OPTIONS': '/ja-netfilter/vmoptions/dataspell.vmoptions', 'SYSTEMD_EXEC_PID': '3373', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DATAGRIP_VM_OPTIONS': '/ja-netfilter/vmoptions/datagrip.vmoptions', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IDEA_VM_OPTIONS': '/ja-netfilter/vmoptions/idea.vmoptions', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'https_proxy': 'http://127.0.0.1:12334/', 'COLCON_PREFIX_PATH': '/home/mh/Documents/ros2_drone_swarm', 'CLION_VM_OPTIONS': '/ja-netfilter/vmoptions/clion.vmoptions', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'mh', 'ALL_PROXY': 'socks://127.0.0.1:12334/', 'JETBRAINSCLIENT_VM_OPTIONS': '/ja-netfilter/vmoptions/jetbrainsclient.vmoptions', '_P9K_SSH_TTY': '/dev/pts/0', 'http_proxy': 'http://127.0.0.1:12334/', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'PHPSTORM_VM_OPTIONS': '/ja-netfilter/vmoptions/phpstorm.vmoptions', 'USERNAME': 'mh', 'TERM': 'xterm-256color', 'STUDIO_VM_OPTIONS': '/ja-netfilter/vmoptions/studio.vmoptions', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/mh/rosenv/bin:/home/mh/.local/bin:/home/mh/rosenv/bin:/home/mh/.local/bin:/home/mh/.local/bin:/home/mh/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/mh-Precision-5530:@/tmp/.ICE-unix/3220,unix/mh-Precision-5530:/tmp/.ICE-unix/3220', 'PAPERSIZE': 'letter', 'RIDER_VM_OPTIONS': '/ja-netfilter/vmoptions/rider.vmoptions', 'DEVECOSTUDIO_VM_OPTIONS': '/ja-netfilter/vmoptions/devecostudio.vmoptions', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'en_US.UTF-8', 'ftp_proxy': 'http://127.0.0.1:12334/', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/b8ca06d1_c560_4e67_9b23_17cd06b3999a', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'GOLAND_VM_OPTIONS': '/ja-netfilter/vmoptions/goland.vmoptions', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.145', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/usr/bin/zsh', 'LC_NAME': 'en_US.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'IGN_GAZEBO_RESOURCE_PATH': '/opt/ros/jazzy/share', 'LC_MEASUREMENT': 'en_US.UTF-8', 'PYCHARM_VM_OPTIONS': '/ja-netfilter/vmoptions/pycharm.vmoptions', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'P9K_SSH': '0', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'RUBYMINE_VM_OPTIONS': '/ja-netfilter/vmoptions/rubymine.vmoptions', 'PWD': '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs', 'JETBRAINS_CLIENT_VM_OPTIONS': '/ja-netfilter/vmoptions/jetbrains_client.vmoptions', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', '_P9K_TTY': '/dev/pts/0', 'FTP_PROXY': 'http://127.0.0.1:12334/', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/home/mh/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:12334/', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[3.308950] (-) TimerEvent: {}
+[3.309251] (swarm_msgs) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating type hashes for ROS interfaces\x1b[0m\n'}
+[3.319956] (swarm_msgs) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_copy_swarm_msgs\n'}
+[3.409038] (-) TimerEvent: {}
+[3.509302] (-) TimerEvent: {}
+[3.551554] (swarm_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[3.568746] (swarm_msgs) StdoutLine: {'line': b'creating swarm_msgs.egg-info\n'}
+[3.569021] (swarm_msgs) StdoutLine: {'line': b'writing swarm_msgs.egg-info/PKG-INFO\n'}
+[3.569232] (swarm_msgs) StdoutLine: {'line': b'writing dependency_links to swarm_msgs.egg-info/dependency_links.txt\n'}
+[3.569440] (swarm_msgs) StdoutLine: {'line': b'writing top-level names to swarm_msgs.egg-info/top_level.txt\n'}
+[3.569597] (swarm_msgs) StdoutLine: {'line': b"writing manifest file 'swarm_msgs.egg-info/SOURCES.txt'\n"}
+[3.609429] (-) TimerEvent: {}
+[3.622168] (swarm_msgs) StdoutLine: {'line': b"reading manifest file 'swarm_msgs.egg-info/SOURCES.txt'\n"}
+[3.623201] (swarm_msgs) StdoutLine: {'line': b"writing manifest file 'swarm_msgs.egg-info/SOURCES.txt'\n"}
+[3.632579] (swarm_msgs) StdoutLine: {'line': b'[  1%] Built target swarm_msgs__rosidl_generator_type_description\n'}
+[3.646693] (swarm_msgs) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[3.661237] (swarm_msgs) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[3.666017] (swarm_msgs) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_build_swarm_msgs_egg\n'}
+[3.709583] (-) TimerEvent: {}
+[3.809784] (-) TimerEvent: {}
+[3.910008] (-) TimerEvent: {}
+[4.010221] (-) TimerEvent: {}
+[4.110458] (-) TimerEvent: {}
+[4.210733] (-) TimerEvent: {}
+[4.310940] (-) TimerEvent: {}
+[4.411132] (-) TimerEvent: {}
+[4.486958] (swarm_msgs) StdoutLine: {'line': b'[  4%] Built target swarm_msgs__cpp\n'}
+[4.511267] (-) TimerEvent: {}
+[4.576158] (swarm_msgs) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/msg/detail/formation_command__type_support.c.o\x1b[0m\n'}
+[4.576573] (swarm_msgs) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/msg/detail/formation_command__description.c.o\x1b[0m\n'}
+[4.577984] (swarm_msgs) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/msg/detail/formation_command__functions.c.o\x1b[0m\n'}
+[4.578461] (swarm_msgs) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/msg/detail/drone_state__functions.c.o\x1b[0m\n'}
+[4.578780] (swarm_msgs) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/msg/detail/drone_state__type_support.c.o\x1b[0m\n'}
+[4.578986] (swarm_msgs) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/srv/detail/change_formation__description.c.o\x1b[0m\n'}
+[4.579140] (swarm_msgs) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/msg/detail/drone_state__description.c.o\x1b[0m\n'}
+[4.579379] (swarm_msgs) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/srv/detail/disarm_leader__description.c.o\x1b[0m\n'}
+[4.579555] (swarm_msgs) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/srv/detail/change_formation__functions.c.o\x1b[0m\n'}
+[4.579722] (swarm_msgs) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/srv/detail/change_formation__type_support.c.o\x1b[0m\n'}
+[4.587800] (swarm_msgs) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/srv/detail/disarm_leader__functions.c.o\x1b[0m\n'}
+[4.588223] (swarm_msgs) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/srv/detail/disarm_leader__type_support.c.o\x1b[0m\n'}
+[4.611471] (-) TimerEvent: {}
+[4.659621] (swarm_msgs) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/action/detail/execute_mission__description.c.o\x1b[0m\n'}
+[4.662624] (swarm_msgs) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/action/detail/execute_mission__functions.c.o\x1b[0m\n'}
+[4.681016] (swarm_msgs) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/action/detail/execute_mission__type_support.c.o\x1b[0m\n'}
+[4.711589] (-) TimerEvent: {}
+[4.812325] (-) TimerEvent: {}
+[4.912698] (-) TimerEvent: {}
+[5.012936] (-) TimerEvent: {}
+[5.113139] (-) TimerEvent: {}
+[5.213811] (-) TimerEvent: {}
+[5.314243] (-) TimerEvent: {}
+[5.360715] (swarm_msgs) StdoutLine: {'line': b'[ 25%] \x1b[32m\x1b[1mLinking C shared library libswarm_msgs__rosidl_generator_c.so\x1b[0m\n'}
+[5.408540] (swarm_msgs) StdoutLine: {'line': b'[ 25%] Built target swarm_msgs__rosidl_generator_c\n'}
+[5.414394] (-) TimerEvent: {}
+[5.423845] (swarm_msgs) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[5.424324] (swarm_msgs) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[5.424600] (swarm_msgs) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[5.424810] (swarm_msgs) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[5.428368] (swarm_msgs) StdoutLine: {'line': b'[ 33%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[5.429050] (swarm_msgs) StdoutLine: {'line': b'[ 33%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[5.514490] (-) TimerEvent: {}
+[5.614830] (-) TimerEvent: {}
+[5.715079] (-) TimerEvent: {}
+[5.815394] (-) TimerEvent: {}
+[5.915715] (-) TimerEvent: {}
+[6.003803] (swarm_msgs) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/swarm_msgs/srv/change_formation__type_support.cpp.o\x1b[0m\n'}
+[6.004093] (swarm_msgs) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/swarm_msgs/msg/formation_command__type_support.cpp.o\x1b[0m\n'}
+[6.005713] (swarm_msgs) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/swarm_msgs/msg/drone_state__type_support.cpp.o\x1b[0m\n'}
+[6.006114] (swarm_msgs) StdoutLine: {'line': b'[ 39%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/swarm_msgs/srv/disarm_leader__type_support.cpp.o\x1b[0m\n'}
+[6.006406] (swarm_msgs) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/swarm_msgs/action/execute_mission__type_support.cpp.o\x1b[0m\n'}
+[6.017236] (swarm_msgs) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/swarm_msgs/msg/drone_state__type_support.cpp.o\x1b[0m\n'}
+[6.017586] (-) TimerEvent: {}
+[6.017798] (swarm_msgs) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/swarm_msgs/srv/change_formation__type_support.cpp.o\x1b[0m\n'}
+[6.021832] (swarm_msgs) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/swarm_msgs/msg/formation_command__type_support.cpp.o\x1b[0m\n'}
+[6.108110] (swarm_msgs) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/swarm_msgs/srv/disarm_leader__type_support.cpp.o\x1b[0m\n'}
+[6.117695] (-) TimerEvent: {}
+[6.120132] (swarm_msgs) StdoutLine: {'line': b'[ 47%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/swarm_msgs/action/execute_mission__type_support.cpp.o\x1b[0m\n'}
+[6.177511] (swarm_msgs) StdoutLine: {'line': b'[ 48%] \x1b[32m\x1b[1mLinking CXX shared library libswarm_msgs__rosidl_typesupport_c.so\x1b[0m\n'}
+[6.217813] (-) TimerEvent: {}
+[6.280931] (swarm_msgs) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/swarm_msgs/msg/detail/formation_command__type_support.cpp.o\x1b[0m\n'}
+[6.281299] (swarm_msgs) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/swarm_msgs/srv/detail/change_formation__type_support.cpp.o\x1b[0m\n'}
+[6.281471] (swarm_msgs) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/swarm_msgs/msg/detail/drone_state__type_support.cpp.o\x1b[0m\n'}
+[6.286772] (swarm_msgs) StdoutLine: {'line': b'[ 52%] Built target swarm_msgs__rosidl_typesupport_c\n'}
+[6.317926] (-) TimerEvent: {}
+[6.318239] (swarm_msgs) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/swarm_msgs/srv/detail/disarm_leader__type_support.cpp.o\x1b[0m\n'}
+[6.418181] (-) TimerEvent: {}
+[6.518804] (-) TimerEvent: {}
+[6.545158] (swarm_msgs) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/swarm_msgs/msg/detail/drone_state__type_support.c.o\x1b[0m\n'}
+[6.619206] (-) TimerEvent: {}
+[6.660480] (swarm_msgs) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/swarm_msgs/msg/detail/formation_command__type_support.c.o\x1b[0m\n'}
+[6.719376] (-) TimerEvent: {}
+[6.797750] (swarm_msgs) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/swarm_msgs/srv/detail/change_formation__type_support.c.o\x1b[0m\n'}
+[6.819720] (-) TimerEvent: {}
+[6.828707] (swarm_msgs) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/swarm_msgs/action/detail/execute_mission__type_support.cpp.o\x1b[0m\n'}
+[6.920014] (-) TimerEvent: {}
+[6.925892] (swarm_msgs) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/swarm_msgs/srv/detail/disarm_leader__type_support.c.o\x1b[0m\n'}
+[7.020215] (-) TimerEvent: {}
+[7.030340] (swarm_msgs) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/swarm_msgs/action/detail/execute_mission__type_support.c.o\x1b[0m\n'}
+[7.120368] (-) TimerEvent: {}
+[7.225010] (-) TimerEvent: {}
+[7.264660] (swarm_msgs) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/swarm_msgs/msg/detail/dds_fastrtps/formation_command__type_support.cpp.o\x1b[0m\n'}
+[7.269048] (swarm_msgs) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/swarm_msgs/msg/detail/dds_fastrtps/drone_state__type_support.cpp.o\x1b[0m\n'}
+[7.277805] (swarm_msgs) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/swarm_msgs/srv/detail/dds_fastrtps/change_formation__type_support.cpp.o\x1b[0m\n'}
+[7.285684] (swarm_msgs) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/swarm_msgs/srv/detail/dds_fastrtps/disarm_leader__type_support.cpp.o\x1b[0m\n'}
+[7.325132] (-) TimerEvent: {}
+[7.336905] (swarm_msgs) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/swarm_msgs/action/detail/dds_fastrtps/execute_mission__type_support.cpp.o\x1b[0m\n'}
+[7.397457] (swarm_msgs) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking C shared library libswarm_msgs__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[7.425254] (-) TimerEvent: {}
+[7.459225] (swarm_msgs) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/swarm_msgs/msg/detail/drone_state__type_support_c.cpp.o\x1b[0m\n'}
+[7.463731] (swarm_msgs) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/swarm_msgs/msg/detail/formation_command__type_support_c.cpp.o\x1b[0m\n'}
+[7.493716] (swarm_msgs) StdoutLine: {'line': b'[ 72%] Built target swarm_msgs__rosidl_typesupport_introspection_c\n'}
+[7.510856] (swarm_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/swarm_msgs/srv/detail/change_formation__type_support_c.cpp.o\x1b[0m\n'}
+[7.525372] (-) TimerEvent: {}
+[7.625752] (-) TimerEvent: {}
+[7.726913] (-) TimerEvent: {}
+[7.831182] (-) TimerEvent: {}
+[7.878041] (swarm_msgs) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/swarm_msgs/srv/detail/disarm_leader__type_support_c.cpp.o\x1b[0m\n'}
+[7.931355] (-) TimerEvent: {}
+[8.014170] (swarm_msgs) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/swarm_msgs/action/detail/execute_mission__type_support_c.cpp.o\x1b[0m\n'}
+[8.033723] (-) TimerEvent: {}
+[8.134377] (-) TimerEvent: {}
+[8.234973] (-) TimerEvent: {}
+[8.337850] (-) TimerEvent: {}
+[8.438305] (-) TimerEvent: {}
+[8.538735] (-) TimerEvent: {}
+[8.639114] (-) TimerEvent: {}
+[8.739558] (-) TimerEvent: {}
+[8.783810] (swarm_msgs) StdoutLine: {'line': b'[ 78%] \x1b[32m\x1b[1mLinking CXX shared library libswarm_msgs__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[8.839798] (-) TimerEvent: {}
+[8.940434] (-) TimerEvent: {}
+[9.030035] (swarm_msgs) StdoutLine: {'line': b'[ 78%] Built target swarm_msgs__rosidl_typesupport_cpp\n'}
+[9.040612] (-) TimerEvent: {}
+[9.141305] (-) TimerEvent: {}
+[9.241668] (-) TimerEvent: {}
+[9.342113] (-) TimerEvent: {}
+[9.442477] (-) TimerEvent: {}
+[9.542747] (-) TimerEvent: {}
+[9.643055] (-) TimerEvent: {}
+[9.743377] (-) TimerEvent: {}
+[9.843610] (-) TimerEvent: {}
+[9.874823] (swarm_msgs) StdoutLine: {'line': b'[ 79%] \x1b[32m\x1b[1mLinking CXX shared library libswarm_msgs__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[9.943732] (-) TimerEvent: {}
+[9.989525] (swarm_msgs) StdoutLine: {'line': b'[ 79%] Built target swarm_msgs__rosidl_typesupport_introspection_cpp\n'}
+[10.000985] (swarm_msgs) StdoutLine: {'line': b'[ 81%] \x1b[32m\x1b[1mLinking CXX shared library libswarm_msgs__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[10.043828] (-) TimerEvent: {}
+[10.131743] (swarm_msgs) StdoutLine: {'line': b'[ 81%] Built target swarm_msgs__rosidl_typesupport_fastrtps_c\n'}
+[10.143928] (-) TimerEvent: {}
+[10.244149] (-) TimerEvent: {}
+[10.344495] (-) TimerEvent: {}
+[10.444826] (-) TimerEvent: {}
+[10.545104] (-) TimerEvent: {}
+[10.645431] (-) TimerEvent: {}
+[10.742971] (swarm_msgs) StdoutLine: {'line': b'[ 82%] \x1b[32m\x1b[1mLinking CXX shared library libswarm_msgs__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[10.745539] (-) TimerEvent: {}
+[10.845726] (-) TimerEvent: {}
+[10.846396] (swarm_msgs) StdoutLine: {'line': b'[ 82%] Built target swarm_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[10.872019] (swarm_msgs) StdoutLine: {'line': b'[ 82%] Built target swarm_msgs\n'}
+[10.895143] (swarm_msgs) StdoutLine: {'line': b'[ 83%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[10.945805] (-) TimerEvent: {}
+[11.045988] (-) TimerEvent: {}
+[11.146225] (-) TimerEvent: {}
+[11.246496] (-) TimerEvent: {}
+[11.346837] (-) TimerEvent: {}
+[11.447070] (-) TimerEvent: {}
+[11.547319] (-) TimerEvent: {}
+[11.647591] (-) TimerEvent: {}
+[11.747887] (-) TimerEvent: {}
+[11.848123] (-) TimerEvent: {}
+[11.948329] (-) TimerEvent: {}
+[12.048631] (-) TimerEvent: {}
+[12.148929] (-) TimerEvent: {}
+[12.235543] (swarm_msgs) StdoutLine: {'line': b'[ 83%] Built target swarm_msgs__py\n'}
+[12.249051] (-) TimerEvent: {}
+[12.259745] (swarm_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_py.dir/rosidl_generator_py/swarm_msgs/srv/_change_formation_s.c.o\x1b[0m\n'}
+[12.260036] (swarm_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_py.dir/rosidl_generator_py/swarm_msgs/msg/_drone_state_s.c.o\x1b[0m\n'}
+[12.260183] (swarm_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_py.dir/rosidl_generator_py/swarm_msgs/msg/_formation_command_s.c.o\x1b[0m\n'}
+[12.260326] (swarm_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_py.dir/rosidl_generator_py/swarm_msgs/action/_execute_mission_s.c.o\x1b[0m\n'}
+[12.260472] (swarm_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_py.dir/rosidl_generator_py/swarm_msgs/srv/_disarm_leader_s.c.o\x1b[0m\n'}
+[12.349161] (-) TimerEvent: {}
+[12.449472] (-) TimerEvent: {}
+[12.549774] (-) TimerEvent: {}
+[12.650011] (-) TimerEvent: {}
+[12.750308] (-) TimerEvent: {}
+[12.839463] (swarm_msgs) StdoutLine: {'line': b'[ 91%] \x1b[32m\x1b[1mLinking C shared library libswarm_msgs__rosidl_generator_py.so\x1b[0m\n'}
+[12.850477] (-) TimerEvent: {}
+[12.894112] (swarm_msgs) StdoutLine: {'line': b'[ 91%] Built target swarm_msgs__rosidl_generator_py\n'}
+[12.918270] (swarm_msgs) StdoutLine: {'line': b'[ 94%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/swarm_msgs/_swarm_msgs_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[12.918583] (swarm_msgs) StdoutLine: {'line': b'[ 94%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/swarm_msgs/_swarm_msgs_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[12.918715] (swarm_msgs) StdoutLine: {'line': b'[ 95%] \x1b[32mBuilding C object CMakeFiles/swarm_msgs_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/swarm_msgs/_swarm_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[12.950570] (-) TimerEvent: {}
+[13.050867] (-) TimerEvent: {}
+[13.151246] (-) TimerEvent: {}
+[13.251791] (-) TimerEvent: {}
+[13.326324] (swarm_msgs) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/swarm_msgs/swarm_msgs_s__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[13.326597] (swarm_msgs) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/swarm_msgs/swarm_msgs_s__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[13.326772] (swarm_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/swarm_msgs/swarm_msgs_s__rosidl_typesupport_c.so\x1b[0m\n'}
+[13.351983] (-) TimerEvent: {}
+[13.364471] (swarm_msgs) StdoutLine: {'line': b'[100%] Built target swarm_msgs_s__rosidl_typesupport_c\n'}
+[13.365774] (swarm_msgs) StdoutLine: {'line': b'[100%] Built target swarm_msgs_s__rosidl_typesupport_introspection_c\n'}
+[13.367503] (swarm_msgs) StdoutLine: {'line': b'[100%] Built target swarm_msgs_s__rosidl_typesupport_fastrtps_c\n'}
+[13.382786] (swarm_msgs) CommandEnded: {'returncode': 0}
+[13.383489] (swarm_msgs) JobProgress: {'identifier': 'swarm_msgs', 'progress': 'install'}
+[13.394295] (swarm_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs'], 'cwd': '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs', 'env': OrderedDict({'APPCODE_VM_OPTIONS': '/ja-netfilter/vmoptions/appcode.vmoptions', 'GATEWAY_VM_OPTIONS': '/ja-netfilter/vmoptions/gateway.vmoptions', 'HTTPS_PROXY': 'http://127.0.0.1:12334/', 'GZ_SIM_RESOURCE_PATH': ':/home/mh/PX4-Autopilot/Tools/simulation/gz/models', 'no_proxy': 'localhost,127.0.0.0/8,::1', 'LANGUAGE': 'en_US:en', 'USER': 'mh', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'WEBSTORM_VM_OPTIONS': '/ja-netfilter/vmoptions/webstorm.vmoptions', 'WEBIDE_VM_OPTIONS': '/ja-netfilter/vmoptions/webide.vmoptions', 'all_proxy': 'socks://127.0.0.1:12334/', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/lib', 'LESS': '-R', 'HOME': '/home/mh', 'OLDPWD': '/home/mh/Documents/ros2_drone_swarm/src/swarm_controller', 'DESKTOP_SESSION': 'ubuntu', 'NO_PROXY': 'localhost,127.0.0.0/8,::1', 'LSCOLORS': 'Gxfxcxdxbxegedabagacad', 'ZSH': '/home/mh/.oh-my-zsh', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': 'less', 'LC_MONETARY': 'en_US.UTF-8', 'P9K_TTY': 'old', 'DATASPELL_VM_OPTIONS': '/ja-netfilter/vmoptions/dataspell.vmoptions', 'SYSTEMD_EXEC_PID': '3373', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DATAGRIP_VM_OPTIONS': '/ja-netfilter/vmoptions/datagrip.vmoptions', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IDEA_VM_OPTIONS': '/ja-netfilter/vmoptions/idea.vmoptions', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'https_proxy': 'http://127.0.0.1:12334/', 'COLCON_PREFIX_PATH': '/home/mh/Documents/ros2_drone_swarm', 'CLION_VM_OPTIONS': '/ja-netfilter/vmoptions/clion.vmoptions', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'mh', 'ALL_PROXY': 'socks://127.0.0.1:12334/', 'JETBRAINSCLIENT_VM_OPTIONS': '/ja-netfilter/vmoptions/jetbrainsclient.vmoptions', '_P9K_SSH_TTY': '/dev/pts/0', 'http_proxy': 'http://127.0.0.1:12334/', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'PHPSTORM_VM_OPTIONS': '/ja-netfilter/vmoptions/phpstorm.vmoptions', 'USERNAME': 'mh', 'TERM': 'xterm-256color', 'STUDIO_VM_OPTIONS': '/ja-netfilter/vmoptions/studio.vmoptions', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/mh/rosenv/bin:/home/mh/.local/bin:/home/mh/rosenv/bin:/home/mh/.local/bin:/home/mh/.local/bin:/home/mh/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/mh-Precision-5530:@/tmp/.ICE-unix/3220,unix/mh-Precision-5530:/tmp/.ICE-unix/3220', 'PAPERSIZE': 'letter', 'RIDER_VM_OPTIONS': '/ja-netfilter/vmoptions/rider.vmoptions', 'DEVECOSTUDIO_VM_OPTIONS': '/ja-netfilter/vmoptions/devecostudio.vmoptions', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'en_US.UTF-8', 'ftp_proxy': 'http://127.0.0.1:12334/', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/b8ca06d1_c560_4e67_9b23_17cd06b3999a', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'GOLAND_VM_OPTIONS': '/ja-netfilter/vmoptions/goland.vmoptions', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.145', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/usr/bin/zsh', 'LC_NAME': 'en_US.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'IGN_GAZEBO_RESOURCE_PATH': '/opt/ros/jazzy/share', 'LC_MEASUREMENT': 'en_US.UTF-8', 'PYCHARM_VM_OPTIONS': '/ja-netfilter/vmoptions/pycharm.vmoptions', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'P9K_SSH': '0', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'RUBYMINE_VM_OPTIONS': '/ja-netfilter/vmoptions/rubymine.vmoptions', 'PWD': '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs', 'JETBRAINS_CLIENT_VM_OPTIONS': '/ja-netfilter/vmoptions/jetbrains_client.vmoptions', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', '_P9K_TTY': '/dev/pts/0', 'FTP_PROXY': 'http://127.0.0.1:12334/', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/home/mh/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:12334/', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[13.404474] (swarm_msgs) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[13.404887] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/ament_index/resource_index/rosidl_interfaces/swarm_msgs\n'}
+[13.405064] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/msg/DroneState.json\n'}
+[13.405240] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/msg/FormationCommand.json\n'}
+[13.405426] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/srv/ChangeFormation.json\n'}
+[13.405534] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/srv/DisarmLeader.json\n'}
+[13.405645] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/action/ExecuteMission.json\n'}
+[13.405755] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs\n'}
+[13.405856] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action\n'}
+[13.405998] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail\n'}
+[13.406094] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__description.c\n'}
+[13.406221] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__type_support.h\n'}
+[13.406318] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__struct.h\n'}
+[13.406406] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__functions.h\n'}
+[13.406522] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__type_support.c\n'}
+[13.406620] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__functions.c\n'}
+[13.406901] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/execute_mission.h\n'}
+[13.406997] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv\n'}
+[13.407094] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/disarm_leader.h\n'}
+[13.407214] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail\n'}
+[13.407322] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__type_support.h\n'}
+[13.407403] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__type_support.c\n'}
+[13.407467] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__functions.c\n'}
+[13.407587] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__struct.h\n'}
+[13.407721] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__struct.h\n'}
+[13.407824] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__functions.h\n'}
+[13.407911] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__type_support.h\n'}
+[13.408000] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__functions.c\n'}
+[13.408164] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__description.c\n'}
+[13.408278] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__description.c\n'}
+[13.408384] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__functions.h\n'}
+[13.408467] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__type_support.c\n'}
+[13.408563] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/change_formation.h\n'}
+[13.408662] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg\n'}
+[13.408751] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail\n'}
+[13.408841] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__type_support.h\n'}
+[13.408925] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__description.c\n'}
+[13.409011] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__functions.c\n'}
+[13.409097] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__struct.h\n'}
+[13.409182] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__type_support.c\n'}
+[13.409265] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__description.c\n'}
+[13.409367] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__type_support.c\n'}
+[13.409466] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__struct.h\n'}
+[13.409561] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__functions.h\n'}
+[13.409717] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__functions.c\n'}
+[13.409832] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__functions.h\n'}
+[13.409933] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__type_support.h\n'}
+[13.410014] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[13.410107] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/formation_command.h\n'}
+[13.410198] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/drone_state.h\n'}
+[13.410366] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/library_path.sh\n'}
+[13.410487] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/library_path.dsv\n'}
+[13.410757] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_generator_c.so\n'}
+[13.411281] (swarm_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_generator_c.so" to ""\n'}
+[13.411363] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs\n'}
+[13.411459] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action\n'}
+[13.411544] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail\n'}
+[13.411627] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__rosidl_typesupport_fastrtps_c.h\n'}
+[13.411704] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv\n'}
+[13.411769] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail\n'}
+[13.411837] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__rosidl_typesupport_fastrtps_c.h\n'}
+[13.411964] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__rosidl_typesupport_fastrtps_c.h\n'}
+[13.412063] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg\n'}
+[13.412130] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail\n'}
+[13.412200] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__rosidl_typesupport_fastrtps_c.h\n'}
+[13.412283] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__rosidl_typesupport_fastrtps_c.h\n'}
+[13.412349] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[13.412431] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[13.412949] (swarm_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[13.413049] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs\n'}
+[13.413165] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action\n'}
+[13.413250] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail\n'}
+[13.413327] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__struct.hpp\n'}
+[13.413399] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__traits.hpp\n'}
+[13.413485] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__builder.hpp\n'}
+[13.413575] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__type_support.hpp\n'}
+[13.413670] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/execute_mission.hpp\n'}
+[13.413767] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv\n'}
+[13.413838] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/change_formation.hpp\n'}
+[13.413930] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail\n'}
+[13.414001] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__struct.hpp\n'}
+[13.414093] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__builder.hpp\n'}
+[13.414190] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__type_support.hpp\n'}
+[13.414284] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__type_support.hpp\n'}
+[13.414379] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__struct.hpp\n'}
+[13.414462] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__builder.hpp\n'}
+[13.414592] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__traits.hpp\n'}
+[13.414750] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__traits.hpp\n'}
+[13.414850] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/disarm_leader.hpp\n'}
+[13.414945] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg\n'}
+[13.415025] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail\n'}
+[13.415094] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__type_support.hpp\n'}
+[13.415188] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__builder.hpp\n'}
+[13.415256] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__traits.hpp\n'}
+[13.415340] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__struct.hpp\n'}
+[13.415429] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__type_support.hpp\n'}
+[13.415514] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__struct.hpp\n'}
+[13.415602] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__builder.hpp\n'}
+[13.415716] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__traits.hpp\n'}
+[13.415843] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[13.415922] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/drone_state.hpp\n'}
+[13.416005] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/formation_command.hpp\n'}
+[13.416104] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs\n'}
+[13.416187] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action\n'}
+[13.416256] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail\n'}
+[13.416339] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.416422] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/dds_fastrtps\n'}
+[13.416528] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv\n'}
+[13.416608] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail\n'}
+[13.416694] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.416768] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/dds_fastrtps\n'}
+[13.416867] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.416938] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg\n'}
+[13.417038] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail\n'}
+[13.417111] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/dds_fastrtps\n'}
+[13.417181] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.417254] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.417344] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[13.417404] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[13.418076] (swarm_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[13.418228] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs\n'}
+[13.418350] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action\n'}
+[13.418424] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail\n'}
+[13.418543] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__rosidl_typesupport_introspection_c.h\n'}
+[13.418702] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__type_support.c\n'}
+[13.418795] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv\n'}
+[13.418865] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail\n'}
+[13.418938] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__type_support.c\n'}
+[13.419036] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__rosidl_typesupport_introspection_c.h\n'}
+[13.419120] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__rosidl_typesupport_introspection_c.h\n'}
+[13.419203] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__type_support.c\n'}
+[13.419303] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg\n'}
+[13.419390] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail\n'}
+[13.419472] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__rosidl_typesupport_introspection_c.h\n'}
+[13.419545] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__rosidl_typesupport_introspection_c.h\n'}
+[13.419627] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__type_support.c\n'}
+[13.419739] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__type_support.c\n'}
+[13.419830] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[13.420007] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_introspection_c.so\n'}
+[13.420548] (swarm_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_introspection_c.so" to ""\n'}
+[13.420680] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_c.so\n'}
+[13.421282] (swarm_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_c.so" to ""\n'}
+[13.421436] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs\n'}
+[13.421511] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action\n'}
+[13.421582] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail\n'}
+[13.421675] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.421793] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__type_support.cpp\n'}
+[13.421906] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv\n'}
+[13.421974] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail\n'}
+[13.422045] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.422143] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.422213] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__type_support.cpp\n'}
+[13.422298] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__type_support.cpp\n'}
+[13.422383] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg\n'}
+[13.422490] (swarm_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail\n'}
+[13.422562] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__type_support.cpp\n'}
+[13.422664] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.422761] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.422853] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__type_support.cpp\n'}
+[13.422994] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[13.423630] (swarm_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[13.423790] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_cpp.so\n'}
+[13.424285] (swarm_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_cpp.so" to ""\n'}
+[13.424392] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/pythonpath.sh\n'}
+[13.424483] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/pythonpath.dsv\n'}
+[13.424594] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs-1.0.0-py3.12.egg-info\n'}
+[13.424771] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs-1.0.0-py3.12.egg-info/dependency_links.txt\n'}
+[13.424869] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs-1.0.0-py3.12.egg-info/PKG-INFO\n'}
+[13.424964] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs-1.0.0-py3.12.egg-info/top_level.txt\n'}
+[13.425056] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs-1.0.0-py3.12.egg-info/SOURCES.txt\n'}
+[13.425146] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs\n'}
+[13.425234] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_introspection_c.so\n'}
+[13.425370] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action\n'}
+[13.425486] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action/_execute_mission.py\n'}
+[13.425598] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action/__init__.py\n'}
+[13.425747] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action/_execute_mission_s.c\n'}
+[13.425844] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/__init__.py\n'}
+[13.425973] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_fastrtps_c.so\n'}
+[13.426068] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/_swarm_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[13.426271] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/_swarm_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[13.426444] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_c.so\n'}
+[13.426583] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/_swarm_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[13.426726] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv\n'}
+[13.426819] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/_disarm_leader_s.c\n'}
+[13.427020] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/__init__.py\n'}
+[13.427141] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/_change_formation.py\n'}
+[13.427268] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/_disarm_leader.py\n'}
+[13.427353] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/_change_formation_s.c\n'}
+[13.427451] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg\n'}
+[13.427535] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/_drone_state_s.c\n'}
+[13.427627] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/_drone_state.py\n'}
+[13.427766] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/__init__.py\n'}
+[13.427867] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/_formation_command.py\n'}
+[13.427974] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/_formation_command_s.c\n'}
+[13.452065] (-) TimerEvent: {}
+[13.488243] (swarm_msgs) StdoutLine: {'line': b"Listing '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs'...\n"}
+[13.488437] (swarm_msgs) StdoutLine: {'line': b"Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/__init__.py'...\n"}
+[13.488510] (swarm_msgs) StdoutLine: {'line': b"Listing '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action'...\n"}
+[13.488577] (swarm_msgs) StdoutLine: {'line': b"Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action/__init__.py'...\n"}
+[13.488663] (swarm_msgs) StdoutLine: {'line': b"Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action/_execute_mission.py'...\n"}
+[13.488735] (swarm_msgs) StdoutLine: {'line': b"Listing '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg'...\n"}
+[13.488800] (swarm_msgs) StdoutLine: {'line': b"Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/__init__.py'...\n"}
+[13.488863] (swarm_msgs) StdoutLine: {'line': b"Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/_drone_state.py'...\n"}
+[13.488925] (swarm_msgs) StdoutLine: {'line': b"Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/_formation_command.py'...\n"}
+[13.488997] (swarm_msgs) StdoutLine: {'line': b"Listing '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv'...\n"}
+[13.489062] (swarm_msgs) StdoutLine: {'line': b"Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/__init__.py'...\n"}
+[13.489131] (swarm_msgs) StdoutLine: {'line': b"Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/_change_formation.py'...\n"}
+[13.489194] (swarm_msgs) StdoutLine: {'line': b"Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/_disarm_leader.py'...\n"}
+[13.494496] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_fastrtps_c.so\n'}
+[13.494861] (swarm_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[13.495064] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_introspection_c.so\n'}
+[13.495430] (swarm_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_introspection_c.so" to ""\n'}
+[13.495767] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_c.so\n'}
+[13.496127] (swarm_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_c.so" to ""\n'}
+[13.496290] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_generator_py.so\n'}
+[13.496564] (swarm_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_generator_py.so" to ""\n'}
+[13.496655] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/msg/DroneState.idl\n'}
+[13.496827] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/msg/FormationCommand.idl\n'}
+[13.497003] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/srv/ChangeFormation.idl\n'}
+[13.497185] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/srv/DisarmLeader.idl\n'}
+[13.497318] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/action/ExecuteMission.idl\n'}
+[13.497420] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/msg/DroneState.msg\n'}
+[13.497506] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/msg/FormationCommand.msg\n'}
+[13.497604] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/srv/ChangeFormation.srv\n'}
+[13.497806] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/srv/DisarmLeader.srv\n'}
+[13.497969] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/action/ExecuteMission.action\n'}
+[13.498147] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/ament_index/resource_index/package_run_dependencies/swarm_msgs\n'}
+[13.498368] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/ament_index/resource_index/parent_prefix_path/swarm_msgs\n'}
+[13.498509] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/ament_prefix_path.sh\n'}
+[13.498615] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/ament_prefix_path.dsv\n'}
+[13.498741] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/path.sh\n'}
+[13.498833] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/path.dsv\n'}
+[13.498989] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/local_setup.bash\n'}
+[13.499106] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/local_setup.sh\n'}
+[13.499207] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/local_setup.zsh\n'}
+[13.499386] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/local_setup.dsv\n'}
+[13.499512] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/package.dsv\n'}
+[13.499609] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/ament_index/resource_index/packages/swarm_msgs\n'}
+[13.499706] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_generator_cExport.cmake\n'}
+[13.499885] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_generator_cExport-release.cmake\n'}
+[13.500068] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[13.500195] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_typesupport_fastrtps_cExport-release.cmake\n'}
+[13.500293] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_generator_cppExport.cmake\n'}
+[13.500441] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[13.500580] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_typesupport_fastrtps_cppExport-release.cmake\n'}
+[13.500674] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[13.500869] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_introspection_cExport-release.cmake\n'}
+[13.500994] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_cExport.cmake\n'}
+[13.501098] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_cExport-release.cmake\n'}
+[13.501225] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[13.501355] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_introspection_cppExport-release.cmake\n'}
+[13.501502] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[13.501617] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_cppExport-release.cmake\n'}
+[13.501843] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_generator_pyExport.cmake\n'}
+[13.501961] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_generator_pyExport-release.cmake\n'}
+[13.502090] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[13.502210] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[13.502339] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[13.502424] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[13.502550] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[13.502683] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[13.502803] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[13.502999] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgsConfig.cmake\n'}
+[13.503101] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgsConfig-version.cmake\n'}
+[13.503226] (swarm_msgs) StdoutLine: {'line': b'-- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/package.xml\n'}
+[13.506309] (swarm_msgs) CommandEnded: {'returncode': 0}
+[13.525632] (swarm_msgs) JobEnded: {'identifier': 'swarm_msgs', 'rc': 0}
+[13.526349] (-) EventReactorShutdown: {}

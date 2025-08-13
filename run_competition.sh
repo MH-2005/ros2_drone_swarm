@@ -35,7 +35,7 @@ check_prerequisites() {
     if [ -z "$ROS_DISTRO" ]; then
         echo "❌  ERROR: ROS environment not sourced."
         echo "Please source your ROS 2 installation first. Example:"
-        echo "source /opt/ros/jazzy/setup.zsh"
+        echo "source /opt/ros/jazzy/setup.bash"
         exit 1
     fi
     echo "✅  ROS $ROS_DISTRO environment is active."
@@ -68,7 +68,14 @@ build_workspace() {
 # Sources the local workspace to make packages available.
 source_workspace() {
     echo "🔗  Sourcing the local workspace..."
-    source install/${SETUP_FILE}
+    if [ -f "install/${SETUP_FILE}" ]; then
+        source install/${SETUP_FILE}
+        echo "✅  Local workspace sourced successfully."
+    else
+        echo "❌  ERROR: install/${SETUP_FILE} not found!"
+        echo "Make sure you've built the workspace first with: ./build_project.sh"
+        exit 1
+    fi
 }
 
 # --- Main Execution Logic ---
@@ -81,7 +88,7 @@ main() {
     detect_shell
     check_prerequisites
     cleanup_processes
-    # build_workspace
+    # build_workspace  # Commented out - assume already built
     source_workspace
 
     echo "🚀  Launching simulation..."

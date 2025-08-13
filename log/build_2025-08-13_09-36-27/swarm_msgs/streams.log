@@ -1,0 +1,400 @@
+[0.009s] Invoking command in '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/mh/Documents/ros2_drone_swarm/src/swarm_msgs -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs
+[0.066s] -- The C compiler identification is GNU 13.3.0
+[0.126s] -- The CXX compiler identification is GNU 13.3.0
+[0.143s] -- Detecting C compiler ABI info
+[0.259s] -- Detecting C compiler ABI info - done
+[0.271s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.271s] -- Detecting C compile features
+[0.272s] -- Detecting C compile features - done
+[0.282s] -- Detecting CXX compiler ABI info
+[0.387s] -- Detecting CXX compiler ABI info - done
+[0.397s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.397s] -- Detecting CXX compile features
+[0.398s] -- Detecting CXX compile features - done
+[0.402s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.534s] -- Found Python3: /home/mh/rosenv/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.655s] -- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+[0.710s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.729s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.752s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.777s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.817s] -- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[0.837s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[0.858s] -- Found rosidl_adapter: 4.6.5 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[1.508s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[2.251s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.541s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.545s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[2.656s] -- Found PythonExtra: /home/mh/rosenv/bin/python3  
+[3.090s] -- Found Python3: /home/mh/rosenv/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[3.165s] -- Configuring done (3.1s)
+[3.224s] -- Generating done (0.0s)
+[3.239s] -- Build files have been written to: /home/mh/Documents/ros2_drone_swarm/build/swarm_msgs
+[3.251s] Invoked command in '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/mh/Documents/ros2_drone_swarm/src/swarm_msgs -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs
+[3.252s] Invoking command in '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/mh/Documents/ros2_drone_swarm/build/swarm_msgs -- -j12 -l12
+[3.309s] [  1%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[3.320s] [  1%] Built target ament_cmake_python_copy_swarm_msgs
+[3.551s] running egg_info
+[3.569s] creating swarm_msgs.egg-info
+[3.569s] writing swarm_msgs.egg-info/PKG-INFO
+[3.569s] writing dependency_links to swarm_msgs.egg-info/dependency_links.txt
+[3.569s] writing top-level names to swarm_msgs.egg-info/top_level.txt
+[3.569s] writing manifest file 'swarm_msgs.egg-info/SOURCES.txt'
+[3.622s] reading manifest file 'swarm_msgs.egg-info/SOURCES.txt'
+[3.623s] writing manifest file 'swarm_msgs.egg-info/SOURCES.txt'
+[3.633s] [  1%] Built target swarm_msgs__rosidl_generator_type_description
+[3.647s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[3.661s] [  4%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[3.666s] [  4%] Built target ament_cmake_python_build_swarm_msgs_egg
+[4.487s] [  4%] Built target swarm_msgs__cpp
+[4.576s] [  9%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/msg/detail/formation_command__type_support.c.o[0m
+[4.576s] [  9%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/msg/detail/formation_command__description.c.o[0m
+[4.578s] [ 10%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/msg/detail/formation_command__functions.c.o[0m
+[4.578s] [  9%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/msg/detail/drone_state__functions.c.o[0m
+[4.579s] [ 12%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/msg/detail/drone_state__type_support.c.o[0m
+[4.579s] [ 13%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/srv/detail/change_formation__description.c.o[0m
+[4.579s] [ 13%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/msg/detail/drone_state__description.c.o[0m
+[4.579s] [ 17%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/srv/detail/disarm_leader__description.c.o[0m
+[4.579s] [ 17%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/srv/detail/change_formation__functions.c.o[0m
+[4.580s] [ 17%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/srv/detail/change_formation__type_support.c.o[0m
+[4.588s] [ 18%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/srv/detail/disarm_leader__functions.c.o[0m
+[4.588s] [ 20%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/srv/detail/disarm_leader__type_support.c.o[0m
+[4.660s] [ 21%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/action/detail/execute_mission__description.c.o[0m
+[4.663s] [ 22%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/action/detail/execute_mission__functions.c.o[0m
+[4.681s] [ 24%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_c.dir/rosidl_generator_c/swarm_msgs/action/detail/execute_mission__type_support.c.o[0m
+[5.361s] [ 25%] [32m[1mLinking C shared library libswarm_msgs__rosidl_generator_c.so[0m
+[5.408s] [ 25%] Built target swarm_msgs__rosidl_generator_c
+[5.424s] [ 31%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[5.424s] [ 31%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[5.425s] [ 31%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[5.425s] [ 31%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[5.429s] [ 33%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[5.429s] [ 33%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[6.004s] [ 35%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/swarm_msgs/srv/change_formation__type_support.cpp.o[0m
+[6.004s] [ 36%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/swarm_msgs/msg/formation_command__type_support.cpp.o[0m
+[6.006s] [ 37%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/swarm_msgs/msg/drone_state__type_support.cpp.o[0m
+[6.006s] [ 39%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/swarm_msgs/srv/disarm_leader__type_support.cpp.o[0m
+[6.006s] [ 40%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/swarm_msgs/action/execute_mission__type_support.cpp.o[0m
+[6.017s] [ 41%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/swarm_msgs/msg/drone_state__type_support.cpp.o[0m
+[6.018s] [ 43%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/swarm_msgs/srv/change_formation__type_support.cpp.o[0m
+[6.022s] [ 44%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/swarm_msgs/msg/formation_command__type_support.cpp.o[0m
+[6.108s] [ 45%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/swarm_msgs/srv/disarm_leader__type_support.cpp.o[0m
+[6.120s] [ 47%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/swarm_msgs/action/execute_mission__type_support.cpp.o[0m
+[6.177s] [ 48%] [32m[1mLinking CXX shared library libswarm_msgs__rosidl_typesupport_c.so[0m
+[6.281s] [ 50%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/swarm_msgs/msg/detail/formation_command__type_support.cpp.o[0m
+[6.281s] [ 52%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/swarm_msgs/srv/detail/change_formation__type_support.cpp.o[0m
+[6.281s] [ 52%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/swarm_msgs/msg/detail/drone_state__type_support.cpp.o[0m
+[6.287s] [ 52%] Built target swarm_msgs__rosidl_typesupport_c
+[6.318s] [ 54%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/swarm_msgs/srv/detail/disarm_leader__type_support.cpp.o[0m
+[6.545s] [ 55%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/swarm_msgs/msg/detail/drone_state__type_support.c.o[0m
+[6.661s] [ 56%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/swarm_msgs/msg/detail/formation_command__type_support.c.o[0m
+[6.798s] [ 58%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/swarm_msgs/srv/detail/change_formation__type_support.c.o[0m
+[6.829s] [ 59%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/swarm_msgs/action/detail/execute_mission__type_support.cpp.o[0m
+[6.926s] [ 60%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/swarm_msgs/srv/detail/disarm_leader__type_support.c.o[0m
+[7.030s] [ 62%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/swarm_msgs/action/detail/execute_mission__type_support.c.o[0m
+[7.265s] [ 63%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/swarm_msgs/msg/detail/dds_fastrtps/formation_command__type_support.cpp.o[0m
+[7.269s] [ 64%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/swarm_msgs/msg/detail/dds_fastrtps/drone_state__type_support.cpp.o[0m
+[7.278s] [ 66%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/swarm_msgs/srv/detail/dds_fastrtps/change_formation__type_support.cpp.o[0m
+[7.286s] [ 67%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/swarm_msgs/srv/detail/dds_fastrtps/disarm_leader__type_support.cpp.o[0m
+[7.337s] [ 68%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/swarm_msgs/action/detail/dds_fastrtps/execute_mission__type_support.cpp.o[0m
+[7.398s] [ 70%] [32m[1mLinking C shared library libswarm_msgs__rosidl_typesupport_introspection_c.so[0m
+[7.459s] [ 71%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/swarm_msgs/msg/detail/drone_state__type_support_c.cpp.o[0m
+[7.464s] [ 72%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/swarm_msgs/msg/detail/formation_command__type_support_c.cpp.o[0m
+[7.494s] [ 72%] Built target swarm_msgs__rosidl_typesupport_introspection_c
+[7.511s] [ 74%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/swarm_msgs/srv/detail/change_formation__type_support_c.cpp.o[0m
+[7.878s] [ 75%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/swarm_msgs/srv/detail/disarm_leader__type_support_c.cpp.o[0m
+[8.014s] [ 77%] [32mBuilding CXX object CMakeFiles/swarm_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/swarm_msgs/action/detail/execute_mission__type_support_c.cpp.o[0m
+[8.784s] [ 78%] [32m[1mLinking CXX shared library libswarm_msgs__rosidl_typesupport_cpp.so[0m
+[9.030s] [ 78%] Built target swarm_msgs__rosidl_typesupport_cpp
+[9.875s] [ 79%] [32m[1mLinking CXX shared library libswarm_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[9.989s] [ 79%] Built target swarm_msgs__rosidl_typesupport_introspection_cpp
+[10.001s] [ 81%] [32m[1mLinking CXX shared library libswarm_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[10.132s] [ 81%] Built target swarm_msgs__rosidl_typesupport_fastrtps_c
+[10.743s] [ 82%] [32m[1mLinking CXX shared library libswarm_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[10.846s] [ 82%] Built target swarm_msgs__rosidl_typesupport_fastrtps_cpp
+[10.872s] [ 82%] Built target swarm_msgs
+[10.895s] [ 83%] [34m[1mGenerating Python code for ROS interfaces[0m
+[12.235s] [ 83%] Built target swarm_msgs__py
+[12.260s] [ 90%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_py.dir/rosidl_generator_py/swarm_msgs/srv/_change_formation_s.c.o[0m
+[12.260s] [ 90%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_py.dir/rosidl_generator_py/swarm_msgs/msg/_drone_state_s.c.o[0m
+[12.260s] [ 90%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_py.dir/rosidl_generator_py/swarm_msgs/msg/_formation_command_s.c.o[0m
+[12.260s] [ 90%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_py.dir/rosidl_generator_py/swarm_msgs/action/_execute_mission_s.c.o[0m
+[12.260s] [ 90%] [32mBuilding C object CMakeFiles/swarm_msgs__rosidl_generator_py.dir/rosidl_generator_py/swarm_msgs/srv/_disarm_leader_s.c.o[0m
+[12.839s] [ 91%] [32m[1mLinking C shared library libswarm_msgs__rosidl_generator_py.so[0m
+[12.894s] [ 91%] Built target swarm_msgs__rosidl_generator_py
+[12.918s] [ 94%] [32mBuilding C object CMakeFiles/swarm_msgs_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/swarm_msgs/_swarm_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[12.918s] [ 94%] [32mBuilding C object CMakeFiles/swarm_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/swarm_msgs/_swarm_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[12.919s] [ 95%] [32mBuilding C object CMakeFiles/swarm_msgs_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/swarm_msgs/_swarm_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[13.326s] [ 98%] [32m[1mLinking C shared module rosidl_generator_py/swarm_msgs/swarm_msgs_s__rosidl_typesupport_introspection_c.so[0m
+[13.327s] [ 98%] [32m[1mLinking C shared module rosidl_generator_py/swarm_msgs/swarm_msgs_s__rosidl_typesupport_fastrtps_c.so[0m
+[13.327s] [100%] [32m[1mLinking C shared module rosidl_generator_py/swarm_msgs/swarm_msgs_s__rosidl_typesupport_c.so[0m
+[13.365s] [100%] Built target swarm_msgs_s__rosidl_typesupport_c
+[13.366s] [100%] Built target swarm_msgs_s__rosidl_typesupport_introspection_c
+[13.367s] [100%] Built target swarm_msgs_s__rosidl_typesupport_fastrtps_c
+[13.383s] Invoked command in '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/mh/Documents/ros2_drone_swarm/build/swarm_msgs -- -j12 -l12
+[13.394s] Invoking command in '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/mh/Documents/ros2_drone_swarm/build/swarm_msgs
+[13.405s] -- Install configuration: "Release"
+[13.405s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/ament_index/resource_index/rosidl_interfaces/swarm_msgs
+[13.405s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/msg/DroneState.json
+[13.405s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/msg/FormationCommand.json
+[13.405s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/srv/ChangeFormation.json
+[13.405s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/srv/DisarmLeader.json
+[13.405s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/action/ExecuteMission.json
+[13.406s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs
+[13.406s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action
+[13.406s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail
+[13.406s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__description.c
+[13.406s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__type_support.h
+[13.406s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__struct.h
+[13.406s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__functions.h
+[13.406s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__type_support.c
+[13.406s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__functions.c
+[13.407s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/execute_mission.h
+[13.407s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv
+[13.407s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/disarm_leader.h
+[13.407s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail
+[13.407s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__type_support.h
+[13.407s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__type_support.c
+[13.407s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__functions.c
+[13.407s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__struct.h
+[13.408s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__struct.h
+[13.408s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__functions.h
+[13.408s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__type_support.h
+[13.408s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__functions.c
+[13.408s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__description.c
+[13.408s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__description.c
+[13.408s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__functions.h
+[13.408s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__type_support.c
+[13.408s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/change_formation.h
+[13.408s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg
+[13.409s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail
+[13.409s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__type_support.h
+[13.409s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__description.c
+[13.409s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__functions.c
+[13.409s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__struct.h
+[13.409s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__type_support.c
+[13.409s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__description.c
+[13.409s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__type_support.c
+[13.409s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__struct.h
+[13.409s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__functions.h
+[13.410s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__functions.c
+[13.410s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__functions.h
+[13.410s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__type_support.h
+[13.410s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/rosidl_generator_c__visibility_control.h
+[13.410s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/formation_command.h
+[13.410s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/drone_state.h
+[13.410s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/library_path.sh
+[13.410s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/library_path.dsv
+[13.411s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_generator_c.so
+[13.411s] -- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_generator_c.so" to ""
+[13.411s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs
+[13.411s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action
+[13.411s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail
+[13.411s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__rosidl_typesupport_fastrtps_c.h
+[13.412s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv
+[13.412s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail
+[13.412s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__rosidl_typesupport_fastrtps_c.h
+[13.412s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__rosidl_typesupport_fastrtps_c.h
+[13.412s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg
+[13.412s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail
+[13.412s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__rosidl_typesupport_fastrtps_c.h
+[13.412s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__rosidl_typesupport_fastrtps_c.h
+[13.412s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[13.412s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_fastrtps_c.so
+[13.413s] -- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[13.413s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs
+[13.413s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action
+[13.413s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail
+[13.413s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__struct.hpp
+[13.413s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__traits.hpp
+[13.413s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__builder.hpp
+[13.413s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__type_support.hpp
+[13.413s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/execute_mission.hpp
+[13.414s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv
+[13.414s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/change_formation.hpp
+[13.414s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail
+[13.414s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__struct.hpp
+[13.414s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__builder.hpp
+[13.414s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__type_support.hpp
+[13.414s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__type_support.hpp
+[13.414s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__struct.hpp
+[13.414s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__builder.hpp
+[13.414s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__traits.hpp
+[13.415s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__traits.hpp
+[13.415s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/disarm_leader.hpp
+[13.415s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg
+[13.415s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail
+[13.415s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__type_support.hpp
+[13.415s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__builder.hpp
+[13.415s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__traits.hpp
+[13.415s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__struct.hpp
+[13.415s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__type_support.hpp
+[13.415s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__struct.hpp
+[13.415s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__builder.hpp
+[13.416s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__traits.hpp
+[13.416s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[13.416s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/drone_state.hpp
+[13.416s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/formation_command.hpp
+[13.416s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs
+[13.416s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action
+[13.416s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail
+[13.416s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__rosidl_typesupport_fastrtps_cpp.hpp
+[13.416s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/dds_fastrtps
+[13.416s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv
+[13.416s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail
+[13.417s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__rosidl_typesupport_fastrtps_cpp.hpp
+[13.417s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/dds_fastrtps
+[13.417s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__rosidl_typesupport_fastrtps_cpp.hpp
+[13.417s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg
+[13.417s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail
+[13.417s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/dds_fastrtps
+[13.417s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__rosidl_typesupport_fastrtps_cpp.hpp
+[13.417s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__rosidl_typesupport_fastrtps_cpp.hpp
+[13.417s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[13.417s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_fastrtps_cpp.so
+[13.418s] -- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[13.418s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs
+[13.418s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action
+[13.418s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail
+[13.418s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__rosidl_typesupport_introspection_c.h
+[13.419s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__type_support.c
+[13.419s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv
+[13.419s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail
+[13.419s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__type_support.c
+[13.419s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__rosidl_typesupport_introspection_c.h
+[13.419s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__rosidl_typesupport_introspection_c.h
+[13.419s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__type_support.c
+[13.419s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg
+[13.419s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail
+[13.419s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__rosidl_typesupport_introspection_c.h
+[13.419s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__rosidl_typesupport_introspection_c.h
+[13.419s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__type_support.c
+[13.420s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__type_support.c
+[13.420s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[13.420s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_introspection_c.so
+[13.420s] -- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_introspection_c.so" to ""
+[13.421s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_c.so
+[13.421s] -- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_c.so" to ""
+[13.421s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs
+[13.421s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action
+[13.421s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail
+[13.422s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__rosidl_typesupport_introspection_cpp.hpp
+[13.422s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/action/detail/execute_mission__type_support.cpp
+[13.422s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv
+[13.422s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail
+[13.422s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__rosidl_typesupport_introspection_cpp.hpp
+[13.422s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__rosidl_typesupport_introspection_cpp.hpp
+[13.422s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/disarm_leader__type_support.cpp
+[13.422s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/srv/detail/change_formation__type_support.cpp
+[13.422s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg
+[13.422s] -- Up-to-date: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail
+[13.422s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__type_support.cpp
+[13.422s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/drone_state__rosidl_typesupport_introspection_cpp.hpp
+[13.423s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__rosidl_typesupport_introspection_cpp.hpp
+[13.423s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/include/swarm_msgs/swarm_msgs/msg/detail/formation_command__type_support.cpp
+[13.423s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_introspection_cpp.so
+[13.423s] -- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[13.424s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_cpp.so
+[13.424s] -- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_typesupport_cpp.so" to ""
+[13.424s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/pythonpath.sh
+[13.424s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/pythonpath.dsv
+[13.424s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs-1.0.0-py3.12.egg-info
+[13.425s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs-1.0.0-py3.12.egg-info/dependency_links.txt
+[13.425s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs-1.0.0-py3.12.egg-info/PKG-INFO
+[13.425s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs-1.0.0-py3.12.egg-info/top_level.txt
+[13.425s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs-1.0.0-py3.12.egg-info/SOURCES.txt
+[13.425s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs
+[13.425s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_introspection_c.so
+[13.425s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action
+[13.425s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action/_execute_mission.py
+[13.425s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action/__init__.py
+[13.426s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action/_execute_mission_s.c
+[13.426s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/__init__.py
+[13.426s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_fastrtps_c.so
+[13.426s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/_swarm_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[13.426s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/_swarm_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[13.426s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_c.so
+[13.426s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/_swarm_msgs_s.ep.rosidl_typesupport_c.c
+[13.427s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv
+[13.427s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/_disarm_leader_s.c
+[13.427s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/__init__.py
+[13.427s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/_change_formation.py
+[13.427s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/_disarm_leader.py
+[13.427s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/_change_formation_s.c
+[13.427s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg
+[13.427s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/_drone_state_s.c
+[13.427s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/_drone_state.py
+[13.428s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/__init__.py
+[13.428s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/_formation_command.py
+[13.428s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/_formation_command_s.c
+[13.488s] Listing '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs'...
+[13.488s] Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/__init__.py'...
+[13.488s] Listing '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action'...
+[13.488s] Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action/__init__.py'...
+[13.488s] Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/action/_execute_mission.py'...
+[13.489s] Listing '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg'...
+[13.489s] Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/__init__.py'...
+[13.489s] Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/_drone_state.py'...
+[13.489s] Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/msg/_formation_command.py'...
+[13.489s] Listing '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv'...
+[13.489s] Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/__init__.py'...
+[13.489s] Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/_change_formation.py'...
+[13.489s] Compiling '/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/srv/_disarm_leader.py'...
+[13.494s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_fastrtps_c.so
+[13.495s] -- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_fastrtps_c.so" to ""
+[13.495s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_introspection_c.so
+[13.495s] -- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_introspection_c.so" to ""
+[13.496s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_c.so
+[13.496s] -- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages/swarm_msgs/swarm_msgs_s__rosidl_typesupport_c.so" to ""
+[13.496s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_generator_py.so
+[13.496s] -- Set non-toolchain portion of runtime path of "/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/libswarm_msgs__rosidl_generator_py.so" to ""
+[13.496s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/msg/DroneState.idl
+[13.497s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/msg/FormationCommand.idl
+[13.497s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/srv/ChangeFormation.idl
+[13.497s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/srv/DisarmLeader.idl
+[13.497s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/action/ExecuteMission.idl
+[13.497s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/msg/DroneState.msg
+[13.497s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/msg/FormationCommand.msg
+[13.497s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/srv/ChangeFormation.srv
+[13.498s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/srv/DisarmLeader.srv
+[13.498s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/action/ExecuteMission.action
+[13.498s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/ament_index/resource_index/package_run_dependencies/swarm_msgs
+[13.498s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/ament_index/resource_index/parent_prefix_path/swarm_msgs
+[13.498s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/ament_prefix_path.sh
+[13.498s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/ament_prefix_path.dsv
+[13.499s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/path.sh
+[13.499s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/environment/path.dsv
+[13.499s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/local_setup.bash
+[13.499s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/local_setup.sh
+[13.499s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/local_setup.zsh
+[13.499s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/local_setup.dsv
+[13.499s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/package.dsv
+[13.499s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/ament_index/resource_index/packages/swarm_msgs
+[13.500s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_generator_cExport.cmake
+[13.500s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_generator_cExport-release.cmake
+[13.500s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[13.500s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_typesupport_fastrtps_cExport-release.cmake
+[13.500s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_generator_cppExport.cmake
+[13.500s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[13.500s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_typesupport_fastrtps_cppExport-release.cmake
+[13.500s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_introspection_cExport.cmake
+[13.501s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_introspection_cExport-release.cmake
+[13.501s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_cExport.cmake
+[13.501s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_cExport-release.cmake
+[13.501s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[13.501s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_introspection_cppExport-release.cmake
+[13.501s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_cppExport.cmake
+[13.501s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgs__rosidl_typesupport_cppExport-release.cmake
+[13.502s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_generator_pyExport.cmake
+[13.502s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/export_swarm_msgs__rosidl_generator_pyExport-release.cmake
+[13.502s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/rosidl_cmake-extras.cmake
+[13.502s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[13.502s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[13.502s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[13.502s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[13.503s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[13.503s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[13.503s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgsConfig.cmake
+[13.503s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/cmake/swarm_msgsConfig-version.cmake
+[13.503s] -- Installing: /home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/share/swarm_msgs/package.xml
+[13.506s] Invoked command in '/home/mh/Documents/ros2_drone_swarm/build/swarm_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/mh/Documents/ros2_drone_swarm/build/swarm_msgs

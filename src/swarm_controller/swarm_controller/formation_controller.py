@@ -18,7 +18,12 @@ class FormationController(Node):
         self.declare_parameter('num_drones', 4)
         self.declare_parameter('formation_timeout', 120.0)
         self.declare_parameter('position_tolerance', 1.2)
-        self.declare_parameter('use_sim_time', True)
+        
+        # Check if use_sim_time is already declared
+        try:
+            self.declare_parameter('use_sim_time', True)
+        except Exception:
+            pass
 
         self.num_drones = self.get_parameter('num_drones').value
         self.formation_timeout = self.get_parameter('formation_timeout').value

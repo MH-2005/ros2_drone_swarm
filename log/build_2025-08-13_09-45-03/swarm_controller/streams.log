@@ -1,0 +1,19 @@
+[0.887s] Invoking command in '/home/mh/Documents/ros2_drone_swarm/build/swarm_controller': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/mh/Documents/ros2_drone_swarm/build/swarm_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mh/Documents/ros2_drone_swarm/install/swarm_controller/lib/python3.12/site-packages:/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages:/home/mh/Documents/ros2_drone_swarm/build/swarm_controller:/home/mh/Documents/ros2_drone_swarm/install/swarm_controller/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/mh/Documents/ros2_drone_swarm/build/swarm_controller/build --no-deps symlink_data
+[1.232s] running develop
+[1.462s] running egg_info
+[1.485s] writing swarm_controller.egg-info/PKG-INFO
+[1.485s] writing dependency_links to swarm_controller.egg-info/dependency_links.txt
+[1.485s] writing entry points to swarm_controller.egg-info/entry_points.txt
+[1.485s] writing requirements to swarm_controller.egg-info/requires.txt
+[1.486s] writing top-level names to swarm_controller.egg-info/top_level.txt
+[1.531s] reading manifest file 'swarm_controller.egg-info/SOURCES.txt'
+[1.532s] writing manifest file 'swarm_controller.egg-info/SOURCES.txt'
+[1.556s] running build_ext
+[1.556s] Creating /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/lib/python3.12/site-packages/swarm-controller.egg-link (link to .)
+[1.556s] Installing formation_controller script to /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/bin
+[1.557s] Installing mission_executor script to /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/bin
+[1.557s] Installing swarm_drone script to /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/bin
+[1.557s] 
+[1.557s] Installed /home/mh/Documents/ros2_drone_swarm/build/swarm_controller
+[1.557s] running symlink_data
+[1.592s] Invoked command in '/home/mh/Documents/ros2_drone_swarm/build/swarm_controller' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/mh/Documents/ros2_drone_swarm/build/swarm_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mh/Documents/ros2_drone_swarm/install/swarm_controller/lib/python3.12/site-packages:/home/mh/Documents/ros2_drone_swarm/install/swarm_msgs/lib/python3.12/site-packages:/home/mh/Documents/ros2_drone_swarm/build/swarm_controller:/home/mh/Documents/ros2_drone_swarm/install/swarm_controller/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/mh/Documents/ros2_drone_swarm/build/swarm_controller/build --no-deps symlink_data
