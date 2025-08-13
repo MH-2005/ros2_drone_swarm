@@ -1,0 +1,5 @@
+setuptools
+rclpy
+numpy
+scipy
+pyyaml
