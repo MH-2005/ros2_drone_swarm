@@ -1,1 +1,1 @@
-# Local setup for workspace root - placeholder file
+# Placeholder local setup

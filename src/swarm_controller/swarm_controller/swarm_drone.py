@@ -1,11 +1,14 @@
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionServer
+from rclpy.executors import ExternalShutdownException
 import math
 import numpy as np
 import csv
 from threading import Lock
 import time
+import signal
+import sys
 
 from geometry_msgs.msg import Pose, Twist, Point
 from nav_msgs.msg import Odometry
@@ -35,6 +38,11 @@ def euler_from_quaternion(x, y, z, w):
 class SwarmDrone(Node):
     def __init__(self):
         super().__init__('swarm_drone_node')
+        
+        # Graceful shutdown setup
+        self._shutdown_requested = False
+        signal.signal(signal.SIGINT, self._signal_handler)
+        signal.signal(signal.SIGTERM, self._signal_handler)
         
         # Parameter declarations
         self.declare_parameter('drone_id', 0)
@@ -111,14 +119,17 @@ class SwarmDrone(Node):
                 )
         
         # Services and actions
-        self.mission_action_server = ActionServer(
-            self, ExecuteMission, '/execute_mission', 
-            self.execute_mission_callback
-        )
-        self.disarm_service = self.create_service(
-            DisarmLeader, '/disarm_leader', 
-            self.handle_disarm_request
-        )
+        try:
+            self.mission_action_server = ActionServer(
+                self, ExecuteMission, '/execute_mission', 
+                self.execute_mission_callback
+            )
+            self.disarm_service = self.create_service(
+                DisarmLeader, '/disarm_leader', 
+                self.handle_disarm_request
+            )
+        except Exception as e:
+            self.get_logger().warn(f"Could not create action server or service: {e}")
         
         # Timers
         self.control_timer = self.create_timer(0.1, self.control_loop)  # 10 Hz
@@ -131,19 +142,41 @@ class SwarmDrone(Node):
             self.is_armed = True
             self.is_enabled = True
             
-        # Wait a bit for initialization
-        time.sleep(1.0)
-        
         self.get_logger().info(f"Drone {self.drone_id} started as {self.role}")
+
+    def _signal_handler(self, signum, frame):
+        """Handle shutdown signals gracefully"""
+        self.get_logger().info(f"Drone {self.drone_id} received shutdown signal {signum}")
+        self._shutdown_requested = True
+        
+        # Stop all movement
+        with self.state_lock:
+            self.is_armed = False
+            self.is_enabled = False
+            self.mission_active = False
+        
+        # Send zero velocity
+        zero_cmd = Twist()
+        try:
+            self.velocity_publisher.publish(zero_cmd)
+            enable_msg = Bool()
+            enable_msg.data = False
+            self.enable_publisher.publish(enable_msg)
+        except Exception:
+            pass
 
     def odometry_callback(self, msg):
         """Handle odometry messages from Gazebo"""
+        if self._shutdown_requested:
+            return
         with self.state_lock:
             self.current_pose = msg.pose.pose
             self.current_velocity = msg.twist.twist
 
     def arm_command_callback(self, msg):
         """Handle arm/disarm commands"""
+        if self._shutdown_requested:
+            return
         with self.state_lock:
             if self.is_armed != msg.data:
                 self.is_armed = msg.data
@@ -153,17 +186,26 @@ class SwarmDrone(Node):
 
     def target_update_callback(self, msg):
         """Handle new target pose from formation controller"""
+        if self._shutdown_requested:
+            return
         with self.state_lock:
             self.target_pose = msg
             
     def publish_enable_status(self):
         """Publish enable status to Gazebo multicopter plugin"""
-        enable_msg = Bool()
-        enable_msg.data = self.is_enabled
-        self.enable_publisher.publish(enable_msg)
+        if self._shutdown_requested:
+            return
+        try:
+            enable_msg = Bool()
+            enable_msg.data = self.is_enabled and not self._shutdown_requested
+            self.enable_publisher.publish(enable_msg)
+        except Exception:
+            pass
 
     def other_drone_update_callback(self, msg, drone_id):
         """Handle updates from other drones"""
+        if self._shutdown_requested:
+            return
         current_time = self.get_clock().now().nanoseconds / 1e9
         with self.state_lock:
             self.other_drones[drone_id] = msg
@@ -177,62 +219,68 @@ class SwarmDrone(Node):
 
     def control_loop(self):
         """Main control loop - simplified PID controller"""
-        if not self.is_armed or not self.is_enabled:
-            self.velocity_publisher.publish(Twist())
+        if self._shutdown_requested or not self.is_armed or not self.is_enabled:
+            try:
+                self.velocity_publisher.publish(Twist())
+            except Exception:
+                pass
             return
 
-        with self.state_lock:
-            # Get current position
-            current_pos = self.current_pose.position
-            target_pos = self.target_pose.position
-            
-            # Handle mission waypoints for leader
-            if self.role == 'leader' and self.mission_active:
-                self.update_leader_mission_target()
-            elif self.role == 'follower':
-                self.update_follower_target()
-            
-            # Calculate position error
-            error = [
-                target_pos.x - current_pos.x,
-                target_pos.y - current_pos.y, 
-                target_pos.z - current_pos.z
-            ]
-            
-            # PD Controller
-            derivative = [error[i] - self.previous_error[i] for i in range(3)]
-            self.previous_error = error.copy()
-            
-            # Calculate control commands
-            cmd = Twist()
-            cmd.linear.x = self.kp_linear * error[0] + self.kd_linear * derivative[0]
-            cmd.linear.y = self.kp_linear * error[1] + self.kd_linear * derivative[1] 
-            cmd.linear.z = self.kp_linear * error[2] + self.kd_linear * derivative[2]
-            
-            # Velocity limits
-            cmd.linear.x = np.clip(cmd.linear.x, -self.max_velocity, self.max_velocity)
-            cmd.linear.y = np.clip(cmd.linear.y, -self.max_velocity, self.max_velocity)
-            cmd.linear.z = np.clip(cmd.linear.z, -self.max_velocity, self.max_velocity)
-            
-            # Apply collision avoidance
-            cmd = self.apply_safety_constraints(cmd)
-            
-            # Yaw control towards target
-            if abs(error[0]) > 0.5 or abs(error[1]) > 0.5:
-                target_yaw = math.atan2(error[1], error[0])
-                current_yaw = self.get_current_yaw()
-                yaw_error = target_yaw - current_yaw
+        try:
+            with self.state_lock:
+                # Get current position
+                current_pos = self.current_pose.position
+                target_pos = self.target_pose.position
                 
-                # Normalize yaw error
-                while yaw_error > math.pi:
-                    yaw_error -= 2 * math.pi
-                while yaw_error < -math.pi:
-                    yaw_error += 2 * math.pi
+                # Handle mission waypoints for leader
+                if self.role == 'leader' and self.mission_active:
+                    self.update_leader_mission_target()
+                elif self.role == 'follower':
+                    self.update_follower_target()
                 
-                cmd.angular.z = np.clip(self.kp_angular * yaw_error, -1.0, 1.0)
-            
-            # Publish velocity command
-            self.velocity_publisher.publish(cmd)
+                # Calculate position error
+                error = [
+                    target_pos.x - current_pos.x,
+                    target_pos.y - current_pos.y, 
+                    target_pos.z - current_pos.z
+                ]
+                
+                # PD Controller
+                derivative = [error[i] - self.previous_error[i] for i in range(3)]
+                self.previous_error = error.copy()
+                
+                # Calculate control commands
+                cmd = Twist()
+                cmd.linear.x = self.kp_linear * error[0] + self.kd_linear * derivative[0]
+                cmd.linear.y = self.kp_linear * error[1] + self.kd_linear * derivative[1] 
+                cmd.linear.z = self.kp_linear * error[2] + self.kd_linear * derivative[2]
+                
+                # Velocity limits
+                cmd.linear.x = np.clip(cmd.linear.x, -self.max_velocity, self.max_velocity)
+                cmd.linear.y = np.clip(cmd.linear.y, -self.max_velocity, self.max_velocity)
+                cmd.linear.z = np.clip(cmd.linear.z, -self.max_velocity, self.max_velocity)
+                
+                # Apply collision avoidance
+                cmd = self.apply_safety_constraints(cmd)
+                
+                # Yaw control towards target
+                if abs(error[0]) > 0.5 or abs(error[1]) > 0.5:
+                    target_yaw = math.atan2(error[1], error[0])
+                    current_yaw = self.get_current_yaw()
+                    yaw_error = target_yaw - current_yaw
+                    
+                    # Normalize yaw error
+                    while yaw_error > math.pi:
+                        yaw_error -= 2 * math.pi
+                    while yaw_error < -math.pi:
+                        yaw_error += 2 * math.pi
+                    
+                    cmd.angular.z = np.clip(self.kp_angular * yaw_error, -1.0, 1.0)
+                
+                # Publish velocity command
+                self.velocity_publisher.publish(cmd)
+        except Exception as e:
+            self.get_logger().warn(f"Control loop error: {e}")
 
     def update_leader_mission_target(self):
         """Update target for leader following waypoints"""
@@ -284,6 +332,9 @@ class SwarmDrone(Node):
 
     def apply_safety_constraints(self, cmd):
         """Apply collision avoidance and safety limits"""
+        if self._shutdown_requested:
+            return Twist()
+            
         current_time = self.get_clock().now().nanoseconds / 1e9
         
         for drone_id, state in self.other_drones.items():
@@ -313,11 +364,6 @@ class SwarmDrone(Node):
                 cmd.linear.x += avoid_x * avoidance_strength * 1.5
                 cmd.linear.y += avoid_y * avoidance_strength * 1.5
                 cmd.linear.z += avoid_z * avoidance_strength * 0.8
-                
-                self.get_logger().warn(
-                    f"Avoiding collision with drone_{drone_id}: {distance:.2f}m",
-                    throttle_duration_sec=3.0
-                )
         
         # Final velocity limits
         cmd.linear.x = np.clip(cmd.linear.x, -self.max_velocity, self.max_velocity)
@@ -334,6 +380,9 @@ class SwarmDrone(Node):
 
     def check_leadership_status(self):
         """Check for leader timeout and handle re-election"""
+        if self._shutdown_requested:
+            return
+            
         current_time = self.get_clock().now().nanoseconds / 1e9
         
         if (self.role == 'follower' and 
@@ -365,17 +414,22 @@ class SwarmDrone(Node):
 
     def publish_drone_state(self):
         """Publish current drone state"""
-        state_msg = DroneState()
-        state_msg.drone_id = self.drone_id
-        state_msg.role = self.role
-        state_msg.pose = self.current_pose
-        state_msg.velocity = self.current_velocity
-        state_msg.is_armed = self.is_armed
-        state_msg.is_connected = True
-        state_msg.battery_level = 100.0
-        state_msg.status = "active" if self.is_armed else "standby"
-        
-        self.state_publisher.publish(state_msg)
+        if self._shutdown_requested:
+            return
+        try:
+            state_msg = DroneState()
+            state_msg.drone_id = self.drone_id
+            state_msg.role = self.role
+            state_msg.pose = self.current_pose
+            state_msg.velocity = self.current_velocity
+            state_msg.is_armed = self.is_armed and not self._shutdown_requested
+            state_msg.is_connected = True
+            state_msg.battery_level = 100.0
+            state_msg.status = "active" if self.is_armed else "standby"
+            
+            self.state_publisher.publish(state_msg)
+        except Exception:
+            pass
 
     def load_waypoints_from_file(self, filepath):
         """Load waypoints from CSV file"""
@@ -465,7 +519,8 @@ class SwarmDrone(Node):
         start_time = self.get_clock().now()
         feedback_msg = ExecuteMission.Feedback()
         
-        while self.mission_active and self.role == 'leader' and rclpy.ok():
+        while (self.mission_active and self.role == 'leader' and 
+               not self._shutdown_requested and rclpy.ok()):
             elapsed_time = (self.get_clock().now() - start_time).nanoseconds / 1e9
             
             if request.max_duration > 0 and elapsed_time > request.max_duration:
@@ -479,7 +534,11 @@ class SwarmDrone(Node):
             feedback_msg.leader_pose = self.current_pose
             feedback_msg.distance_to_target = self.calculate_distance_to_target()
             feedback_msg.status_message = f"Moving to waypoint {self.current_waypoint_index + 1}/{len(self.waypoint_list)}"
-            goal_handle.publish_feedback(feedback_msg)
+            
+            try:
+                goal_handle.publish_feedback(feedback_msg)
+            except Exception:
+                break
             
             time.sleep(2.0)  # 0.5 Hz feedback
         
@@ -503,16 +562,47 @@ class SwarmDrone(Node):
         )
 
 def main(args=None):
-    rclpy.init(args=args)
-    drone_node = SwarmDrone()
+    if not rclpy.ok():
+        rclpy.init(args=args)
+    
+    drone_node = None
     
     try:
+        drone_node = SwarmDrone()
         rclpy.spin(drone_node)
-    except KeyboardInterrupt:
-        drone_node.get_logger().info("Shutting down drone node...")
+    except (KeyboardInterrupt, ExternalShutdownException, SystemExit):
+        pass
+    except Exception as e:
+        if drone_node:
+            drone_node.get_logger().error(f"Unexpected error: {e}")
     finally:
-        drone_node.destroy_node()
-        rclpy.shutdown()
+        # Graceful cleanup
+        if drone_node:
+            try:
+                drone_node.get_logger().info(f"Drone {drone_node.drone_id} shutting down gracefully...")
+                
+                # Stop all movement
+                zero_cmd = Twist()
+                enable_msg = Bool()
+                enable_msg.data = False
+                
+                try:
+                    drone_node.velocity_publisher.publish(zero_cmd)
+                    drone_node.enable_publisher.publish(enable_msg)
+                except Exception:
+                    pass
+                
+                # Destroy node properly
+                drone_node.destroy_node()
+            except Exception:
+                pass
+        
+        # Only shutdown rclpy if we're not already shutting down
+        try:
+            if rclpy.ok():
+                rclpy.try_shutdown()
+        except Exception:
+            pass
 
 if __name__ == '__main__':
     main()

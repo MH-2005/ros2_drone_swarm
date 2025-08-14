@@ -1,75 +1,67 @@
 #!/bin/bash
-# Test single drone physics and control
+set -e
 
-echo "🧪 Testing Single Drone Control"
-echo "==============================="
+echo "🧪 Testing Single Drone"
+echo "======================="
 
-# Source environment
-source /opt/ros/jazzy/setup.bash
-source install/setup.bash
+# Check ROS environment
+if [ -z "$ROS_DISTRO" ]; then
+    echo "❌ ROS2 environment not sourced!"
+    echo "Please run: source /opt/ros/jazzy/setup.bash"
+    exit 1
+fi
 
-echo "Starting Gazebo with single drone..."
+# Source workspace
+if [ -f "install/setup.bash" ]; then
+    source install/setup.bash
+    echo "✅ Workspace sourced"
+else
+    echo "❌ Workspace not built! Run ./fix_build_system.sh first"
+    exit 1
+fi
 
-# Launch gazebo with single drone
-gz sim -r -v4 src/swarm_controller/worlds/swarm_arena.world &
-GAZEBO_PID=$!
-
-sleep 5
-
-echo "Spawning single drone..."
-ros2 run ros_gz_sim create -name test_x500 -file src/swarm_controller/models/x500/model.sdf -x 0 -y 0 -z 1
-
-sleep 3
-
-echo "Starting ROS-Gazebo bridges..."
-ros2 run ros_gz_bridge parameter_bridge /model/test_x500/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry --ros-args --remap /model/test_x500/odometry:=/test/odom &
-BRIDGE1_PID=$!
-
-ros2 run ros_gz_bridge parameter_bridge /model/test_x500/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist --ros-args --remap /model/test_x500/cmd_vel:=/test/cmd_vel &
-BRIDGE2_PID=$!
-
-ros2 run ros_gz_bridge parameter_bridge /model/test_x500/enable@std_msgs/msg/Bool]gz.msgs.Boolean --ros-args --remap /model/test_x500/enable:=/test/enable &
-BRIDGE3_PID=$!
-
-sleep 3
-
-echo "Testing basic commands..."
-echo "1. Enabling drone..."
-ros2 topic pub --once /test/enable std_msgs/msg/Bool "{data: true}"
-
+# Clean up any running processes
+echo "🧹 Cleaning up previous processes..."
+killall -9 gz gzserver gzclient &>/dev/null || true
+pkill -f "ros2\|python3.*swarm" &>/dev/null || true
 sleep 2
 
-echo "2. Sending upward velocity..."
-ros2 topic pub --rate 10 /test/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 1.0}}" &
-CMD_PID=$!
-
-sleep 5
-kill $CMD_PID
-
-echo "3. Sending forward velocity..."
-ros2 topic pub --rate 10 /test/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0, y: 0.0, z: 0.0}}" &
-CMD_PID=$!
-
-sleep 5
-kill $CMD_PID
-
-echo "4. Hover (zero velocity)..."
-ros2 topic pub --rate 10 /test/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}}" &
-CMD_PID=$!
-
-sleep 3
-kill $CMD_PID
-
+echo "🚀 Starting single drone test..."
+echo "This will:"
+echo "1. Launch Gazebo with world"
+echo "2. Spawn one drone" 
+echo "3. Start ROS bridges"
+echo "4. Start drone controller"
 echo ""
-echo "Test completed. Press Ctrl+C to stop all processes."
+echo "Press Ctrl+C to stop"
+echo ""
 
+# Launch the simple test
+ros2 launch swarm_controller simple_drone_test.launch.py &
+LAUNCH_PID=$!
+
+# Setup cleanup trap
 cleanup() {
-    echo "Cleaning up..."
-    kill $GAZEBO_PID $BRIDGE1_PID $BRIDGE2_PID $BRIDGE3_PID $CMD_PID 2>/dev/null
-    killall -9 gz 2>/dev/null
-    exit 0
+    echo ""
+    echo "🛑 Stopping test..."
+    kill $LAUNCH_PID &>/dev/null || true
+    killall -9 gz gzserver gzclient &>/dev/null || true
+    pkill -f "ros2\|python3.*swarm" &>/dev/null || true
+    echo "✅ Test stopped"
 }
 
-trap cleanup INT
+trap cleanup EXIT INT TERM
 
-wait
+echo "✅ Test launched (PID: $LAUNCH_PID)"
+echo ""
+echo "📊 Monitoring topics (in another terminal, you can run):"
+echo "  ros2 topic list"
+echo "  ros2 topic echo /drone_0/odom"
+echo "  ros2 topic echo /swarm/state/drone_0"
+echo ""
+echo "🎮 Manual control test (in another terminal):"
+echo "  ros2 topic pub /drone_0/cmd_vel geometry_msgs/msg/Twist \"{linear: {x: 0.0, y: 0.0, z: 1.0}}\""
+echo ""
+
+# Wait for the process
+wait $LAUNCH_PID
