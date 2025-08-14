@@ -1,1 +1,0 @@
-/home/mh/Documents/ros2_drone_swarm/build/swarm_controller/launch/run_competition.launch.py
