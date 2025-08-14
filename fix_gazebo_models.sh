@@ -1,3 +1,427 @@
+#!/bin/bash
+# Fix drone control system and plugin issues
+
+set -e
+
+echo "🔧 Fixing Drone Control System and Physics"
+echo "=========================================="
+
+# Create a proper working X500 model with working plugins
+cat > src/swarm_controller/models/x500/model.sdf << 'EOF'
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="x500">
+    <pose>0 0 0.194 0 0 0</pose>
+    
+    <!-- Main body link -->
+    <link name="base_link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.029125</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.029125</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.055225</izz>
+        </inertia>
+      </inertial>
+
+      <!-- Main body visual -->
+      <visual name="base_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.47 0.47 0.11</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1.0</ambient>
+          <diffuse>0.3 0.3 0.3 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1.0</specular>
+        </material>
+      </visual>
+
+      <!-- Main body collision -->
+      <collision name="base_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.47 0.47 0.11</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <collide_bitmask>0x01</collide_bitmask>
+          </contact>
+        </surface>
+      </collision>
+
+      <!-- Rotor visuals -->
+      <visual name="rotor_0_visual">
+        <pose>0.13 -0.22 0.023 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005</length>
+            <radius>0.128</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 1.0 0.8</ambient>
+          <diffuse>0.2 0.2 1.0 0.8</diffuse>
+        </material>
+      </visual>
+
+      <visual name="rotor_1_visual">
+        <pose>-0.13 0.2 0.023 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005</length>
+            <radius>0.128</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 1.0 0.8</ambient>
+          <diffuse>0.2 0.2 1.0 0.8</diffuse>
+        </material>
+      </visual>
+
+      <visual name="rotor_2_visual">
+        <pose>0.13 0.22 0.023 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005</length>
+            <radius>0.128</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1.0 0.2 0.2 0.8</ambient>
+          <diffuse>1.0 0.2 0.2 0.8</diffuse>
+        </material>
+      </visual>
+
+      <visual name="rotor_3_visual">
+        <pose>-0.13 -0.2 0.023 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005</length>
+            <radius>0.128</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1.0 0.2 0.2 0.8</ambient>
+          <diffuse>1.0 0.2 0.2 0.8</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Rotor links (for physics) -->
+    <link name="rotor_0">
+      <pose>0.13 -0.22 0.023 0 0 0</pose>
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>9.75e-07</ixx>
+          <iyy>0.000166704</iyy>
+          <izz>0.000167604</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <length>0.005</length>
+            <radius>0.128</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0 0 1 0.5</ambient>
+          <diffuse>0 0 1 0.7</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <link name="rotor_1">
+      <pose>-0.13 0.2 0.023 0 0 0</pose>
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>9.75e-07</ixx>
+          <iyy>0.000166704</iyy>
+          <izz>0.000167604</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <length>0.005</length>
+            <radius>0.128</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0 0 1 0.5</ambient>
+          <diffuse>0 0 1 0.7</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <link name="rotor_2">
+      <pose>0.13 0.22 0.023 0 0 0</pose>
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>9.75e-07</ixx>
+          <iyy>0.000166704</iyy>
+          <izz>0.000167604</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <length>0.005</length>
+            <radius>0.128</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0 0 0.5</ambient>
+          <diffuse>1 0 0 0.7</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <link name="rotor_3">
+      <pose>-0.13 -0.2 0.023 0 0 0</pose>
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>9.75e-07</ixx>
+          <iyy>0.000166704</iyy>
+          <izz>0.000167604</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <length>0.005</length>
+            <radius>0.128</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0 0 0.5</ambient>
+          <diffuse>1 0 0 0.7</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Rotor joints -->
+    <joint name="rotor_0_joint" type="revolute">
+      <child>rotor_0</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <joint name="rotor_1_joint" type="revolute">
+      <child>rotor_1</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <joint name="rotor_2_joint" type="revolute">
+      <child>rotor_2</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <joint name="rotor_3_joint" type="revolute">
+      <child>rotor_3</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- IMU Sensor -->
+    <link name="imu_link">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+      <sensor name="imu_sensor" type="imu">
+        <always_on>1</always_on>
+        <update_rate>100</update_rate>
+        <visualize>false</visualize>
+        <topic>imu</topic>
+        <enable_metrics>false</enable_metrics>
+      </sensor>
+    </link>
+
+    <joint name="imu_joint" type="fixed">
+      <child>imu_link</child>
+      <parent>base_link</parent>
+    </joint>
+
+    <!-- Working Multicopter plugins with correct names -->
+    <plugin
+        filename="gz-sim-multicopter-motor-model-system"
+        name="gz::sim::systems::MulticopterMotorModel">
+      <jointName>rotor_0_joint</jointName>
+      <linkName>rotor_0</linkName>
+      <turningDirection>ccw</turningDirection>
+      <timeConstantUp>0.0182</timeConstantUp>
+      <timeConstantDown>0.0274</timeConstantDown>
+      <maxRotVelocity>1100</maxRotVelocity>
+      <motorConstant>0.00000854858</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>0</motorNumber>
+      <rotorDragCoefficient>0.000806428</rotorDragCoefficient>
+      <rollingMomentCoefficient>0.0000001</rollingMomentCoefficient>
+      <motorSpeedPubTopic>motor_speed/0</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+    </plugin>
+
+    <plugin
+        filename="gz-sim-multicopter-motor-model-system"
+        name="gz::sim::systems::MulticopterMotorModel">
+      <jointName>rotor_1_joint</jointName>
+      <linkName>rotor_1</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.0182</timeConstantUp>
+      <timeConstantDown>0.0274</timeConstantDown>
+      <maxRotVelocity>1100</maxRotVelocity>
+      <motorConstant>0.00000854858</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>1</motorNumber>
+      <rotorDragCoefficient>0.000806428</rotorDragCoefficient>
+      <rollingMomentCoefficient>0.0000001</rollingMomentCoefficient>
+      <motorSpeedPubTopic>motor_speed/1</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+    </plugin>
+
+    <plugin
+        filename="gz-sim-multicopter-motor-model-system"
+        name="gz::sim::systems::MulticopterMotorModel">
+      <jointName>rotor_2_joint</jointName>
+      <linkName>rotor_2</linkName>
+      <turningDirection>ccw</turningDirection>
+      <timeConstantUp>0.0182</timeConstantUp>
+      <timeConstantDown>0.0274</timeConstantDown>
+      <maxRotVelocity>1100</maxRotVelocity>
+      <motorConstant>0.00000854858</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>2</motorNumber>
+      <rotorDragCoefficient>0.000806428</rotorDragCoefficient>
+      <rollingMomentCoefficient>0.0000001</rollingMomentCoefficient>
+      <motorSpeedPubTopic>motor_speed/2</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+    </plugin>
+
+    <plugin
+        filename="gz-sim-multicopter-motor-model-system"
+        name="gz::sim::systems::MulticopterMotorModel">
+      <jointName>rotor_3_joint</jointName>
+      <linkName>rotor_3</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.0182</timeConstantUp>
+      <timeConstantDown>0.0274</timeConstantDown>
+      <maxRotVelocity>1100</maxRotVelocity>
+      <motorConstant>0.00000854858</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>3</motorNumber>
+      <rotorDragCoefficient>0.000806428</rotorDragCoefficient>
+      <rollingMomentCoefficient>0.0000001</rollingMomentCoefficient>
+      <motorSpeedPubTopic>motor_speed/3</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+    </plugin>
+
+    <!-- Multicopter velocity control plugin -->
+    <plugin
+        filename="gz-sim-multicopter-control-system"
+        name="gz::sim::systems::MulticopterVelocityControl">
+      <robotNamespace></robotNamespace>
+      <commandSubTopic>cmd_vel</commandSubTopic>
+      <motorSpeedCommandPubTopic>gazebo/command/motor_speed</motorSpeedCommandPubTopic>
+      <enableSubTopic>enable</enableSubTopic>
+      <comLinkName>base_link</comLinkName>
+      <velocityGain>2.7 2.7 2.7</velocityGain>
+      <attitudeGain>3.0 3.0 0.15</attitudeGain>
+      <angularRateGain>0.52 0.52 0.025</angularRateGain>
+      <maximumLinearAcceleration>2 2 2</maximumLinearAcceleration>
+      <maximumLinearVelocity>5 5 5</maximumLinearVelocity>
+      <maximumAngularVelocity>3 3 3</maximumAngularVelocity>
+      <linearVelocityNoiseMean>0 0 0</linearVelocityNoiseMean>
+      <linearVelocityNoiseStdDev>0.1 0.1 0.1</linearVelocityNoiseStdDev>
+      <angularVelocityNoiseMean>0 0 0</angularVelocityNoiseMean>
+      <angularVelocityNoiseStdDev>0.05 0.05 0.05</angularVelocityNoiseStdDev>
+    </plugin>
+
+    <!-- Odometry publisher -->
+    <plugin
+        filename="gz-sim-odometry-publisher-system"
+        name="gz::sim::systems::OdometryPublisher">
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+      <odom_topic>odometry</odom_topic>
+      <odom_publish_frequency>50</odom_publish_frequency>
+    </plugin>
+
+  </model>
+</sdf>
+EOF
+
+echo "🚁 Creating enhanced drone controller with better physics integration..."
+
+# Create a simplified but more reliable swarm_drone controller
+cat > src/swarm_controller/swarm_controller/swarm_drone.py << 'EOF'
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionServer
@@ -516,3 +940,104 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
+EOF
+
+echo ""
+echo "🚁 Creating test script for individual drone control..."
+
+# Create test script for debugging drone control
+cat > test_single_drone.sh << 'EOF'
+#!/bin/bash
+# Test single drone physics and control
+
+echo "🧪 Testing Single Drone Control"
+echo "==============================="
+
+# Source environment
+source /opt/ros/jazzy/setup.bash
+source install/setup.bash
+
+echo "Starting Gazebo with single drone..."
+
+# Launch gazebo with single drone
+gz sim -r -v4 src/swarm_controller/worlds/swarm_arena.world &
+GAZEBO_PID=$!
+
+sleep 5
+
+echo "Spawning single drone..."
+ros2 run ros_gz_sim create -name test_x500 -file src/swarm_controller/models/x500/model.sdf -x 0 -y 0 -z 1
+
+sleep 3
+
+echo "Starting ROS-Gazebo bridges..."
+ros2 run ros_gz_bridge parameter_bridge /model/test_x500/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry --ros-args --remap /model/test_x500/odometry:=/test/odom &
+BRIDGE1_PID=$!
+
+ros2 run ros_gz_bridge parameter_bridge /model/test_x500/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist --ros-args --remap /model/test_x500/cmd_vel:=/test/cmd_vel &
+BRIDGE2_PID=$!
+
+ros2 run ros_gz_bridge parameter_bridge /model/test_x500/enable@std_msgs/msg/Bool]gz.msgs.Boolean --ros-args --remap /model/test_x500/enable:=/test/enable &
+BRIDGE3_PID=$!
+
+sleep 3
+
+echo "Testing basic commands..."
+echo "1. Enabling drone..."
+ros2 topic pub --once /test/enable std_msgs/msg/Bool "{data: true}"
+
+sleep 2
+
+echo "2. Sending upward velocity..."
+ros2 topic pub --rate 10 /test/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 1.0}}" &
+CMD_PID=$!
+
+sleep 5
+kill $CMD_PID
+
+echo "3. Sending forward velocity..."
+ros2 topic pub --rate 10 /test/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0, y: 0.0, z: 0.0}}" &
+CMD_PID=$!
+
+sleep 5
+kill $CMD_PID
+
+echo "4. Hover (zero velocity)..."
+ros2 topic pub --rate 10 /test/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}}" &
+CMD_PID=$!
+
+sleep 3
+kill $CMD_PID
+
+echo ""
+echo "Test completed. Press Ctrl+C to stop all processes."
+
+cleanup() {
+    echo "Cleaning up..."
+    kill $GAZEBO_PID $BRIDGE1_PID $BRIDGE2_PID $BRIDGE3_PID $CMD_PID 2>/dev/null
+    killall -9 gz 2>/dev/null
+    exit 0
+}
+
+trap cleanup INT
+
+wait
+EOF
+
+chmod +x test_single_drone.sh
+
+echo "✅ Enhanced drone control system created!"
+echo ""
+echo "Key improvements:"
+echo "- Fixed SDF model with proper plugin names and structure"
+echo "- Enhanced swarm_drone controller with better PID control"
+echo "- Proper rotor joints and physics"
+echo "- Collision avoidance and safety constraints"
+echo "- Simplified but robust control logic"
+echo ""
+echo "Next steps:"
+echo "1. Rebuild: ./clean_build.sh && ./complete_rebuild.sh"
+echo "2. Test single drone: ./test_single_drone.sh (optional)"
+echo "3. Run full competition: ./run_competition_zsh.sh"
+echo ""
+echo "The drones should now be visible and controllable! 🚁"

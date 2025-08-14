@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: swarm-controller
-Version: 1.0.0
-Summary: Main controller package for the ROS 2 drone swarm.
-Maintainer: Shahin Team
-Maintainer-email: shahin.team@email.com
-License: MIT
