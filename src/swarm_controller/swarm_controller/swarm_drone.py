@@ -385,7 +385,7 @@ class SwarmDrone(Node):
             
         current_time = self.get_clock().now().nanoseconds / 1e9
         
-        if (self.role == 'follower' and 
+        if (self.role == 'follower' and self.is_armed and
             (current_time - self.last_leader_contact) > self.leader_timeout):
             
             self.get_logger().warn("Leader timeout detected. Starting re-election...")

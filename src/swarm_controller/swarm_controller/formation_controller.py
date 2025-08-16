@@ -62,28 +62,39 @@ class FormationController(Node):
         with self.state_lock:
             self.drone_states[msg.drone_id] = msg
 
+
     def handle_formation_request(self, request, response):
         self.get_logger().info(
-            f"Formation request: {request.formation_type} "
-            f"(size: {request.size}, orientation: {request.orientation})"
+            f"Formation request received: {request.formation_type} (size: {request.size})"
         )
 
-        current_leader = self.find_current_leader()
-        if not current_leader:
+        # برای پیدا کردن رهبر تا ۱۰ ثانیه تلاش کن
+        leader_state = None
+        wait_start_time = time.time()
+        while time.time() - wait_start_time < 10.0:
+            leader_state = self.find_current_leader()
+            if leader_state:
+                self.get_logger().info(f"Leader found: drone_{leader_state.drone_id}")
+                break
+            self.get_logger().info("Waiting for leader to be discovered...")
+            time.sleep(0.5)
+
+        if not leader_state:
             response.success = False
-            response.message = "No leader found in swarm"
+            response.message = "Failed to find a leader within the timeout period."
+            self.get_logger().error(response.message)
             return response
 
-        # Calculate formation positions
-        self.compute_formation_targets(request, current_leader)
-        
-        # Send targets to all drones
+        # Calculate and publish formation targets
+        self.compute_formation_targets(request, leader_state)
         for drone_id, target_pose in self.target_poses.items():
             if drone_id in self.target_publishers:
                 self.target_publishers[drone_id].publish(target_pose)
-
-        # Wait for formation completion
-        return self.monitor_formation_execution(response)
+        
+        response.success = True
+        response.message = "Formation change command issued successfully."
+        self.get_logger().info(response.message)
+        return response
 
     def find_current_leader(self):
         with self.state_lock:

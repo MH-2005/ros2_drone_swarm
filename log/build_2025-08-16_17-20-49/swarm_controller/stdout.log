@@ -1,0 +1,37 @@
+running develop
+running egg_info
+creating swarm_controller.egg-info
+writing swarm_controller.egg-info/PKG-INFO
+writing dependency_links to swarm_controller.egg-info/dependency_links.txt
+writing entry points to swarm_controller.egg-info/entry_points.txt
+writing requirements to swarm_controller.egg-info/requires.txt
+writing top-level names to swarm_controller.egg-info/top_level.txt
+writing manifest file 'swarm_controller.egg-info/SOURCES.txt'
+reading manifest file 'swarm_controller.egg-info/SOURCES.txt'
+writing manifest file 'swarm_controller.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/lib/python3.12/site-packages/swarm-controller.egg-link (link to .)
+Installing formation_controller script to /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/bin
+Installing mission_executor script to /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/bin
+Installing swarm_drone script to /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/bin
+
+Installed /home/mh/Documents/ros2_drone_swarm/build/swarm_controller
+running symlink_data
+creating /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/ament_index
+creating /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/ament_index/resource_index
+creating /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/ament_index/resource_index/packages
+symbolically linking /home/mh/Documents/ros2_drone_swarm/build/swarm_controller/resource/swarm_controller -> /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/ament_index/resource_index/packages
+symbolically linking /home/mh/Documents/ros2_drone_swarm/build/swarm_controller/package.xml -> /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller
+creating /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller/launch
+symbolically linking /home/mh/Documents/ros2_drone_swarm/build/swarm_controller/launch/simple_drone_test.launch.py -> /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller/launch
+symbolically linking /home/mh/Documents/ros2_drone_swarm/build/swarm_controller/launch/simple_test.launch.py -> /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller/launch
+symbolically linking /home/mh/Documents/ros2_drone_swarm/build/swarm_controller/launch/run_competition.launch.py -> /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller/launch
+creating /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller/worlds
+symbolically linking /home/mh/Documents/ros2_drone_swarm/build/swarm_controller/worlds/swarm_arena.world -> /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller/worlds
+creating /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller/config
+symbolically linking /home/mh/Documents/ros2_drone_swarm/build/swarm_controller/config/swarm_params.yaml -> /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller/config
+symbolically linking /home/mh/Documents/ros2_drone_swarm/build/swarm_controller/config/swarm_viz.rviz -> /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller/config
+creating /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller/models
+creating /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller/models/x500
+symbolically linking /home/mh/Documents/ros2_drone_swarm/build/swarm_controller/models/x500/model.sdf -> /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller/models/x500
+symbolically linking /home/mh/Documents/ros2_drone_swarm/build/swarm_controller/models/x500/model.config -> /home/mh/Documents/ros2_drone_swarm/install/swarm_controller/share/swarm_controller/models/x500

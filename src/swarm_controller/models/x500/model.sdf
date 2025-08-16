@@ -291,9 +291,8 @@
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
-
-    <!-- Multicopter Control Plugin -->
-    <plugin filename="gz-sim-multicopter-control-system" 
+    
+    <plugin filename="gz-sim-multicopter-control-system"
             name="gz::sim::systems::MulticopterVelocityControl">
       <robotNamespace></robotNamespace>
       <commandSubTopic>cmd_vel</commandSubTopic>
@@ -310,7 +309,7 @@
       <linearVelocityNoiseStdDev>0.1 0.1 0.1</linearVelocityNoiseStdDev>
       <angularVelocityNoiseMean>0 0 0</angularVelocityNoiseMean>
       <angularVelocityNoiseStdDev>0.05 0.05 0.05</angularVelocityNoiseStdDev>
-      
+
       <rotorConfiguration>
         <rotor>
           <jointName>rotor_0_joint</jointName>

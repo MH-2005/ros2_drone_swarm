@@ -98,6 +98,9 @@ class MissionExecutor(Node):
     def run_mission_flow(self):
         self.get_logger().info('Starting full competition mission flow...')
         
+        self.get_logger().info('Allowing 5 seconds for system stabilization...')
+        time.sleep(5) # به سیستم ۵ ثانیه فرصت می‌دهد
+        
         self.set_all_drones_armed(True)
         
         # --- Phase 1: Formation Shapes ---
@@ -115,6 +118,7 @@ class MissionExecutor(Node):
         self.set_all_drones_armed(False)
         self.get_logger().info('🎉 All competition phases completed successfully! 🎉')
 
+
     def execute_phase_1(self):
         self.get_logger().info("--- EXECUTING PHASE 1: Formation Shapes ---")
         self.start_video_recording("1_formations")
@@ -131,10 +135,13 @@ class MissionExecutor(Node):
             rclpy.spin_until_future_complete(self, future)
 
             if not (future.result() and future.result().success):
-                self.get_logger().error(f"Phase 1 failed: Could not form '{f_type}'.")
+                self.get_logger().error(f"Phase 1 failed: Could not issue command for '{f_type}'.")
                 self.stop_video_recording()
                 return False
-            time.sleep(3) # Hold formation for video
+            
+            self.get_logger().info(f"Command for '{f_type}' issued. Waiting 15 seconds for completion...")
+            time.sleep(15)
+            self.get_logger().info(f"'{f_type}' formation should be complete.")
         
         self.stop_video_recording()
         return True
