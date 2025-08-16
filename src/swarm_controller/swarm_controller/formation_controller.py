@@ -19,7 +19,6 @@ class FormationController(Node):
         self.declare_parameter('formation_timeout', 120.0)
         self.declare_parameter('position_tolerance', 1.2)
         
-        # Check if use_sim_time is already declared
         try:
             self.declare_parameter('use_sim_time', True)
         except Exception:
@@ -56,53 +55,101 @@ class FormationController(Node):
             self.handle_formation_request
         )
         
+        # Debug timer
+        self.debug_timer = self.create_timer(2.0, self.debug_drone_states)
+        
         self.get_logger().info("Formation Controller initialized and ready")
+
+    def debug_drone_states(self):
+        """Debug function to show drone states"""
+        with self.state_lock:
+            states_info = []
+            for drone_id, state in self.drone_states.items():
+                states_info.append(f"drone_{drone_id}({state.role})")
+            if states_info:
+                self.get_logger().info(f"Active drones: {', '.join(states_info)}")
+            else:
+                self.get_logger().warn("No drone states received yet")
 
     def drone_state_callback(self, msg):
         with self.state_lock:
             self.drone_states[msg.drone_id] = msg
-
+            # Log first reception
+            if len(self.drone_states) <= self.num_drones:
+                self.get_logger().info(f"Received state from drone_{msg.drone_id} role={msg.role}")
 
     def handle_formation_request(self, request, response):
-        self.get_logger().info(
-            f"Formation request received: {request.formation_type} (size: {request.size})"
-        )
+        self.get_logger().info(f"Formation request: {request.formation_type} (size: {request.size})")
 
-        # برای پیدا کردن رهبر تا ۱۰ ثانیه تلاش کن
+        # Wait for leader with improved logic
         leader_state = None
         wait_start_time = time.time()
-        while time.time() - wait_start_time < 10.0:
+        
+        while time.time() - wait_start_time < 15.0:  # Increased timeout
             leader_state = self.find_current_leader()
             if leader_state:
                 self.get_logger().info(f"Leader found: drone_{leader_state.drone_id}")
                 break
-            self.get_logger().info("Waiting for leader to be discovered...")
+                
+            # Show current drone states for debugging
+            with self.state_lock:
+                available_drones = list(self.drone_states.keys())
+                self.get_logger().info(f"Available drones: {available_drones}, waiting for leader...")
+            
             time.sleep(0.5)
 
         if not leader_state:
+            with self.state_lock:
+                drone_info = []
+                for drone_id, state in self.drone_states.items():
+                    drone_info.append(f"drone_{drone_id}({getattr(state, 'role', 'unknown')})")
+                
             response.success = False
-            response.message = "Failed to find a leader within the timeout period."
+            response.message = f"No leader found. Available: {', '.join(drone_info)}"
             self.get_logger().error(response.message)
             return response
 
         # Calculate and publish formation targets
         self.compute_formation_targets(request, leader_state)
+        
+        # Publish targets
+        published_count = 0
         for drone_id, target_pose in self.target_poses.items():
             if drone_id in self.target_publishers:
                 self.target_publishers[drone_id].publish(target_pose)
+                published_count += 1
+                self.get_logger().info(
+                    f"Published target for drone_{drone_id}: "
+                    f"({target_pose.position.x:.1f}, {target_pose.position.y:.1f}, {target_pose.position.z:.1f})"
+                )
         
         response.success = True
-        response.message = "Formation change command issued successfully."
+        response.message = f"Formation targets published to {published_count} drones"
         self.get_logger().info(response.message)
         return response
 
     def find_current_leader(self):
+        """Find current leader with improved logic"""
         with self.state_lock:
+            # First try to find explicit leader
             for state in self.drone_states.values():
                 if hasattr(state, 'role') and state.role == 'leader':
                     return state
-            # Fallback: return drone_0 if no explicit leader
-            return self.drone_states.get(0, None)
+            
+            # Fallback: return drone_0 if available and armed
+            if 0 in self.drone_states:
+                state = self.drone_states[0]
+                if hasattr(state, 'is_armed') and state.is_armed:
+                    self.get_logger().info("Using drone_0 as fallback leader")
+                    return state
+            
+            # Last resort: return any armed drone
+            for state in self.drone_states.values():
+                if hasattr(state, 'is_armed') and state.is_armed:
+                    self.get_logger().info(f"Using drone_{state.drone_id} as emergency leader")
+                    return state
+            
+            return None
 
     def compute_formation_targets(self, request, leader_state):
         with self.state_lock:
